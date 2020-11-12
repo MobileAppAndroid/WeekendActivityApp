@@ -26,25 +26,38 @@
 **Required Must-have Stories**
 
 * [Wenjuan fill in your required user stories here]
-* User can sign up: username + pwd + 
-* User can log in: username + pwd
-* User can operate on their calendar by label on their 
-* 
+* User can sign up
+* User can log in
+* User can view their calendar for weekend activities
+* User can operate on their calendar, like show available time, grey out unavailable time
+* User can form groups 
+* User can setup an activity in a group with activity specifics (min/max number of participants, locations, fees) 
+* Schedule of users of a group will be automatically mapped together for filtering down a time common for most people, (maybe return a list of time options and number of available participants)
+* Users can comment on the activity 
 
 **Optional Nice-to-have Stories**
 
 * [Fatemah fill in your optional user stories here]
-* ...
+* Make the app more user friendly
+* User can drag items to their activity
+* User can add profile pic to their username
+* User can do a pull to refresh for latest changes
+* User can load more comments using infinite scrolling
 
 ### 2. Screen Archetypes
 
-* [list first screen here]
-   * [list associated required story here]
-   * ...
-* [list second screen here]
-   * [list associated required story here]
-   * ...
-
+* Login Screen
+   * User can login
+* Registration Screen
+   * User can create a new account
+* Stream
+   * User can view a feed of photos
+   * User can double tap a photo to like
+* Creation
+   * User can post a new photo to their feed
+* Search
+   * User can search for other users
+   * User can follow/unfollow another user
 ### 3. Navigation
 
 **Tab Navigation** (Tab to Screen)
