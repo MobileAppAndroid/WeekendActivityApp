@@ -92,7 +92,7 @@ This app is aimmed at help users to plan activity to do with friends in an aided
 <img src="wireframes.png" width=600>
 
 ### [BONUS] Digital Wireframes & Mockups
-<img src="wireframes_Figma1.png" width=300> <img src="wireframes_Figma2.png" width=450> <img src="wireframes_Figma3.png" width=300>
+<img src="wireframes_Figma1.png" width=500> <img src="wireframes_Figma2.png" width=750> <img src="wireframes_Figma3.png" width=500>
 
 ### [BONUS] Interactive Prototype
 ![](appPrototype.gif)
