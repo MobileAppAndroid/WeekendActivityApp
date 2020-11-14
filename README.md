@@ -13,13 +13,6 @@ This app is aimmed at help users to plan activity to do with friends in an aided
 ### App Evaluation
 [Evaluation of your app across the following attributes]
 - **Category:** Productivity, Social networking
-- **Mobile:** Map, camera, location
-- **Story:** 
-- **Market:** dish finder
-- **Habit:**
-- **Scope:**
-
-- **Category:** Productivity, Social networking
 - **Mobile:** This is particular beneficial with the real time, camera, location functions in the mobile phone and convenient for users to use their phone to check schedules and create activities.
 - **Story:** Automate availability to be shared among group members for determining the activity schedule
 - **Market:** Any individual who looks for an efficient way to organize activities.
