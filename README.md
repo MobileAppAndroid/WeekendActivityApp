@@ -98,10 +98,71 @@ This app is aimmed at help users to plan activity to do with friends in an aided
 ![](appPrototype.gif)
 
 ## Schema 
-[This section will be completed in Unit 9]
+
 ### Models
-[Add table of models]
+1. [User](#User)
+2. [Group](#Group)
+3. [Activity](#Activity)
+4. [Comment](#Comment)
+
+Reference: [Supported Parse Data Types](https://docs.parseplatform.org/rest/guide/#data-types)
+#### User
+|Property	| Type	| Description |
+|----|----|----|
+|userId	| String	| unique id for the user (default field) |
+|userName | String | username for login | 
+|screenName | String	| display name for a user |
+|profileImage|	File	| user profile image |
+|userQRCode | File | user QR code for adding to a group|
+|groups | List<[Group](#Group)> | a list of groups joined|
+|activities | List<[Activity](#Activity)> |a list of activities notified, attended| 
+|createAt | DateTime | date when user is created (default field) |
+
+#### Group
+|Property	| Type	| Description |
+|----|----|----|
+|groupId |String | unique id for the group (default field) |
+|groupName | String | display name for a group |
+|groupQRcode |File | group QR code for users to identify a group to join |
+|description | String | display description of a group |
+|managers | List<[User](#User)> | a list of users that manage the groups, propose activities |
+|members | List<[User](#User)> | a list of members |
+|activities | List<[Activity](#Activity)> | a list of activities |
+|createAt | DateTime | date when group is created (default field) |
+
+#### Activity
+|Property	| Type	| Description |
+|----|----|----|
+|activityName | String | display name for an activity |
+|groupNotified| Pointer to [Group](#Group)| |
+|location | String | |
+|date | DateTime | date for the activity |
+|membersRegistered | List<[User](#User)> | list of users that registered for the activity| 
+|activityStatus | String | "active", "cancelled", "up for vote"|
+|comments | List<[Comment](#Comment)> | a list of comments associated with the activity|
+|commentsCount	| Number	| number of comments that has been posted to an activity |
+| likesCount	| Number |	number of likes for the activity |
+| createdAt	| DateTime	| date when post is created (default field) |
+
+#### Comment
+|Property	| Type	| Description |
+|----|----|----|
+|author | Pointer to [User](#User) | pointer to the user who posted the comment |
+|content| String | comment to the activity |
+|image | File | image around the activity|
+|createdAt| DateTime | date when post is created (default field) |
+
 ### Networking
-- [Add list of network requests by screen ]
-- [Create basic snippets for each Parse network request]
-- [OPTIONAL: List endpoints if using existing API such as Yelp]
+#### [Add list of network requests by screen]
+#### [Create basic snippets for each Parse network request]
+- Login Screen
+    - (READ/GET) login details
+- Registration Screen
+    - (CREATE/POST) username and password
+    - (READ/GET) login with Google
+- Activty Screen
+- Creation Screen
+- Group Screen
+- Profile Screen
+    - (Read/GET) Query logged in user object
+#### [OPTIONAL: List endpoints if using existing API such as Yelp]
