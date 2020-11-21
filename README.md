@@ -161,8 +161,13 @@ Reference: [Supported Parse Data Types](https://docs.parseplatform.org/rest/guid
     - (CREATE/POST) username and password
     - (READ/GET) login with Google
 - Activty Screen
+    - (READ/GET) Query event details from Activities
 - Creation Screen
+	- (CREATE/POST) add events
+	- (UPDATE/PUT) Update event details like location, time, participants
+	- (DELETE) delete the event
 - Group Screen
+	- (READ/GET) Query the group name with participants
 - Profile Screen
     - (Read/GET) Query logged in user object
 #### [OPTIONAL: List endpoints if using existing API such as Yelp]
