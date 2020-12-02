@@ -8,6 +8,8 @@ import androidx.fragment.app.FragmentManager;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.example.weekendactivity.fragments.ActivityFragment;
+import com.example.weekendactivity.fragments.ProfileFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity
@@ -34,25 +36,25 @@ public class MainActivity extends AppCompatActivity
                 switch (menuItem.getItemId())
                 {
                     case R.id.action_activity:
-                        // fragment = new PostsFragment();
+                         fragment = new ActivityFragment();
                         break;
                     case R.id.action_group:
-                        // fragment = new ComposeFragment();
+                         fragment = new ActivityFragment();
                         break;
                     case R.id.action_create:
-                        // fragment = new LogoutFragment();
+                         fragment = new ActivityFragment();
                         break;
                     case R.id.action_schedule:
-                        // fragment = new LogoutFragment();
+                         fragment = new ActivityFragment();
                         break;
                     case R.id.action_profile:
-                        // fragment = new LogoutFragment();
+                         fragment = new ProfileFragment();
                         break;
                     default:
                         break;
                 }
 
-//                fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).commit();
+                fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).commit();
                 return true;
             }
         });

@@ -99,7 +99,7 @@ This app is aimmed at help users to plan activity to do with friends in an aided
 
 ## Schema 
 
-### Models
+### com.example.weekendactivity.Models
 1. [User](#User)
 2. [Group](#Group)
 3. [Activity](#Activity)
