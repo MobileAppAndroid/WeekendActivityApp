@@ -13,7 +13,11 @@ import android.widget.Toast;
 
 import com.example.weekendactivity.fragments.GroupFragment;
 import com.parse.ParseException;
+import com.parse.ParseUser;
 import com.parse.SaveCallback;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class CreateGroupActivity extends AppCompatActivity
 {
@@ -51,8 +55,14 @@ public class CreateGroupActivity extends AppCompatActivity
         String groupName = etGroupName.getText().toString();
         String description = etDescription.getText().toString();
 
+        User currentUser = (User) ParseUser.getCurrentUser();
         group.setGroupname(groupName);
         group.setDescription(description);
+        //group.addToMembers(currentUser);
+        //group.addToManagers(currentUser);
+        List<User> members=new ArrayList<>();
+        members.add(currentUser);
+        group.setMembers(members);
 
         group.saveInBackground(new SaveCallback() {
             @Override
@@ -65,8 +75,9 @@ public class CreateGroupActivity extends AppCompatActivity
                     return;
                 }
 
-                goMainActivity();
+
                 Toast.makeText(CreateGroupActivity.this, "Group created Successfully", Toast.LENGTH_SHORT).show();
+                goMainActivity();
             }
         });
     }

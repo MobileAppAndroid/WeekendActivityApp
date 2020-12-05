@@ -5,6 +5,7 @@ import com.parse.ParseClassName;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -67,6 +68,14 @@ public class Activity extends ParseObject {
     public void setEnddate(Date endDate) { put(KEY_ENDDATE, endDate); }
 
     public List<String> getMemberRegistered(){ return getList(KEY_MEMBERREGISTERED); }
+
+    public void setMemberregistered(List<User> users){
+        List<String> memberRegistered = new ArrayList<>();
+        for ( User user : users) {
+            memberRegistered.add(user.getObjectId());
+        }
+        put(KEY_MEMBERREGISTERED, memberRegistered);
+    }
 
     public void addToMemberregistered(User user){
         List<String> memberRegistered= getMemberRegistered();

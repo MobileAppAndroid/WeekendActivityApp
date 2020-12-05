@@ -4,6 +4,7 @@ import com.parse.ParseClassName;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @ParseClassName("Group")
@@ -26,6 +27,13 @@ public class Group extends ParseObject {
 
     public List<String> getManagers(){ return getList(KEY_MANAGERS); }
 
+    public void setManagers( List<User> users) {
+        List<String> managers = new ArrayList<>();
+        for ( User user : users) {
+            managers.add(user.getObjectId());
+        }
+        put(KEY_MANAGERS, managers);  }
+
     public void addToManagers(User user){
         List<String> managers = getManagers();
         if (managers.contains(user.getObjectId())){ return; }
@@ -44,9 +52,18 @@ public class Group extends ParseObject {
 
     public List<String> getMembers(){ return getList(KEY_MEMBERS); }
 
+    public void setMembers(List<User> users){
+        List<String> members = new ArrayList<>();
+        for ( User user : users) {
+            members.add(user.getObjectId());
+        }
+        put(KEY_MEMBERS, members); }
+
     public void addToMembers(User user){
         List<String> members = getMembers();
-        if (members.contains(user.getObjectId())){ return; }
+        if (members != null) {
+            if (members.contains(user.getObjectId())){ return; }
+        }
         members.add(user.getObjectId());
         put(KEY_MEMBERS,members);
     }
