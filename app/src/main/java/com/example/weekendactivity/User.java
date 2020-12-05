@@ -8,14 +8,14 @@ import com.parse.ParseUser;
 
 import java.util.List;
 
-@ParseClassName("User")
+@ParseClassName("_User")
 public class User extends ParseUser {
-    private static final String KEY_USERNAME = "username";
-    private static final String KEY_EMAIL = "email";
-    private static final String KEY_SCREENNAME = "screenName";
-    private static final String KEY_PROFILEIMAGE = "profileImage";
-    private static final String KEY_ACTIVITIES = "activities";
-    private static final String KEY_GROUPS = "groups";
+    public static final String KEY_USERNAME = "username";
+    public static final String KEY_EMAIL = "email";
+    public static final String KEY_SCREENNAME = "screenName";
+    public static final String KEY_PROFILEIMAGE = "profileImage";
+    public static final String KEY_ACTIVITIES = "activities";
+    public static final String KEY_GROUPS = "groups";
 
     public String getScreenname() { return getString(KEY_SCREENNAME);}
 

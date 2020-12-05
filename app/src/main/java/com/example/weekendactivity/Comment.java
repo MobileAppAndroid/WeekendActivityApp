@@ -10,9 +10,9 @@ import java.util.Date;
 @ParseClassName("Comment")
 public class Comment extends ParseObject {
 
-    private static final String KEY_AUTHOR = "author";
-    private static final String KEY_CONTENT = "content";
-    private static final String KEY_IMAGE = "image";
+    public static final String KEY_AUTHOR = "author";
+    public static final String KEY_CONTENT = "content";
+    public static final String KEY_IMAGE = "image";
 
     public ParseFile getImage(){
         return getParseFile(KEY_IMAGE);
