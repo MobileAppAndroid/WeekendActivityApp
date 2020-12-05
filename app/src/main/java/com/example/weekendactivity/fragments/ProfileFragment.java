@@ -91,8 +91,12 @@ public class ProfileFragment extends Fragment {
         tvScreenname = view.findViewById(R.id.tvScreenName);
         btnLogout = view.findViewById(R.id.btnLogout);
         ivProfile = view.findViewById(R.id.ivProfile);
-        tvUsername.setText(ParseUser.getCurrentUser().getUsername());
-        tvScreenname.setText(ParseUser.getCurrentUser().getUsername());
+        tvUsername.setText(ParseUser.getCurrentUser().getUsername()+"@");
+        if (ParseUser.getCurrentUser().getString("screenName") != null){
+            tvScreenname.setText(ParseUser.getCurrentUser().getString("screenName"));
+        } else{
+            tvScreenname.setText(ParseUser.getCurrentUser().getUsername());
+        }
 
         int radius = 30; // corner radius, higher value = more rounded
         int margin = 10; // crop margin, set to 0 for corners with no crop

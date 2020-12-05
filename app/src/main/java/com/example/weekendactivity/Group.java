@@ -1,6 +1,7 @@
 package com.example.weekendactivity;
 
 import com.parse.ParseClassName;
+import com.parse.ParseFile;
 import com.parse.ParseObject;
 
 import java.util.List;
@@ -8,11 +9,12 @@ import java.util.List;
 @ParseClassName("Group")
 public class Group extends ParseObject {
 
-    private static final String KEY_GROUPNAME = "groupName";
-    private static final String KEY_DESCRIPTION = "description";
-    private static final String KEY_MANAGERS = "managers";
-    private static final String KEY_MEMBERS = "members";
-    private static final String KEY_ACTIVITIES = "activities";
+    public static final String KEY_GROUPNAME = "groupName";
+    public static final String KEY_DESCRIPTION = "description";
+    public static final String KEY_MANAGERS = "managers";
+    public static final String KEY_MEMBERS = "members";
+    public static final String KEY_ACTIVITIES = "activities";
+    public static final String KEY_GROUPIMAGE = "groupImage";
 
     public String getGroupname(){ return getString(KEY_GROUPNAME); }
 
@@ -74,4 +76,8 @@ public class Group extends ParseObject {
         }
         put(KEY_ACTIVITIES,activities);
     }
+
+    public ParseFile getGroupImage(){ return getParseFile(KEY_GROUPIMAGE); }
+
+    public void setGroupImage(ParseFile groupImage){ put(KEY_GROUPIMAGE, groupImage); }
 }
