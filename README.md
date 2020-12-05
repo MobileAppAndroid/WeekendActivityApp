@@ -25,8 +25,8 @@ This app is aimmed at help users to plan activity to do with friends in an aided
 
 **Required Must-have Stories**
 
-* [ ] User can log in (make it login with Google)
-* [ ] User can create a new account
+* [x] User can log in (make it login with Google)
+* [x] User can create a new account
 * [ ] User can view future activities and past attended activities
 * [ ] User can set their attendence preference
 * [ ] User can form/join groups 
@@ -171,3 +171,11 @@ Reference: [Supported Parse Data Types](https://docs.parseplatform.org/rest/guid
 - Profile Screen
     - (Read/GET) Query logged in user object
 #### [OPTIONAL: List endpoints if using existing API such as Yelp]
+
+## Sprint 1
+* [x] User can log in (make it login with Google)
+* [x] User can create a new account
+* [x] Create bottom navigation bar
+
+### Sprint1: App
+![](sprint1.gif)
