@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.example.weekendactivity.fragments.ActivityFragment;
+import com.example.weekendactivity.fragments.GroupFragment;
 import com.example.weekendactivity.fragments.ProfileFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -39,7 +40,7 @@ public class MainActivity extends AppCompatActivity
                          fragment = new ActivityFragment();
                         break;
                     case R.id.action_group:
-                         fragment = new ActivityFragment();
+                         fragment = new GroupFragment();
                         break;
                     case R.id.action_create:
                          fragment = new ActivityFragment();
