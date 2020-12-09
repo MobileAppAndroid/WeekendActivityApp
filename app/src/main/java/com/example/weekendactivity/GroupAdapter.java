@@ -51,6 +51,8 @@ public class GroupAdapter extends RecyclerView.Adapter<GroupAdapter.ViewHolder>
         private TextView tvMembers;
         private TextView tvDescription;
 
+        private String membersText;
+
         public ViewHolder(@NonNull View itemView)
         {
             super(itemView);
@@ -64,7 +66,10 @@ public class GroupAdapter extends RecyclerView.Adapter<GroupAdapter.ViewHolder>
         {
             tvGroupName.setText(group.getGroupname());
             tvDescription.setText(group.getDescription());
-            tvMembers.setText(group.getMembers().size() + " members");
+
+            membersText = (group.getMembers().size() == 1) ? group.getMembers().size() + " member" : group.getMembers().size() + " members";
+
+            tvMembers.setText(membersText);
 
         }
     }

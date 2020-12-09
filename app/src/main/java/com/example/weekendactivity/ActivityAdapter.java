@@ -88,7 +88,7 @@ public class ActivityAdapter extends RecyclerView.Adapter<ActivityAdapter.ViewHo
 
         }
 
-        @SuppressLint("ResourceAsColor")
+        @SuppressLint({"ResourceAsColor", "SetTextI18n"})
         public void bind(final Activity activity) {
             User author = (User) activity.getAuthor();
             final Group groupNotified = activity.getGroupNotified();

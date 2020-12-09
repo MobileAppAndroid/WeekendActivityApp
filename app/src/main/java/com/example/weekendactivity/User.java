@@ -17,9 +17,13 @@ public class User extends ParseUser {
     public static final String KEY_ACTIVITIES = "activities";
     public static final String KEY_GROUPS = "groups";
 
+    public String getUsername() { return getString(KEY_USERNAME);}
+
+    public void setUsername(String username) { put(KEY_USERNAME, username);}
+
     public String getScreenname() { return getString(KEY_SCREENNAME);}
 
-    public void setKeyScreenname(String screenName) { put(KEY_SCREENNAME, screenName);}
+    public void setScreenname(String screenName) { put(KEY_SCREENNAME, screenName);}
 
     public ParseFile getProfileImage(){ return getParseFile(KEY_PROFILEIMAGE); }
 

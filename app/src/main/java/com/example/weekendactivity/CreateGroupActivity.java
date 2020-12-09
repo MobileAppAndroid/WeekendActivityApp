@@ -32,6 +32,8 @@ public class CreateGroupActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_group);
 
+        this.setTitle("Create Group");
+
         etGroupName = findViewById(R.id.etGroupName);
         etDescription = findViewById(R.id.etDescription);
         btnCreateGroup = findViewById(R.id.btnCreateGroup);
@@ -77,15 +79,15 @@ public class CreateGroupActivity extends AppCompatActivity
 
 
                 Toast.makeText(CreateGroupActivity.this, "Group created Successfully", Toast.LENGTH_SHORT).show();
-                goMainActivity();
+                goGroupFragment();
             }
         });
     }
 
-    private void goMainActivity()
+    private void goGroupFragment()
     {
-        Intent i = new Intent(this,MainActivity.class);
+        Intent i = new Intent(this, GroupFragment.class);
         startActivity(i);
-        finish();
+        // finish();
     }
 }

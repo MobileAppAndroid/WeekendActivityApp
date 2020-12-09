@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.weekendactivity.MainActivity;
 import com.example.weekendactivity.R;
 
 /**
@@ -62,5 +63,13 @@ public class ComposeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_compose, container, false);
+    }
+
+    public void onResume()
+    {
+        super.onResume();
+
+        // Set title bar
+        ((MainActivity) getActivity()).setActionBarTitle("Create Activity");
     }
 }
