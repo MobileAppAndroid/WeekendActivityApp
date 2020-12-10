@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,40 +11,36 @@
     android:layout_height="wrap_content"
     android:layout_margin="8dp">
 
+
     <ImageView
         android:id="@+id/ivGroup"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:layout_marginBottom="5dp"
+
         android:scaleType="centerCrop"
         tools:srcCompat="@tools:sample/avatars" />
-
-    <ImageView
-        android:id="@+id/ivLocation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tvDateTime"
-        android:layout_toEndOf="@id/ivGroup"
-        android:src="@drawable/ic_baseline_location_on_24" />
 
     <TextView
         android:id="@+id/tvActivityName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
+        android:layout_marginBottom="5dp"
         android:layout_toEndOf="@id/ivGroup"
-        android:background="#FFFFFF"
         android:text="Volleyball game"
-        android:textColor="#474646"
-        android:textSize="18sp" />
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/tvGroupName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/tvActivityName"
-        android:layout_toRightOf="@id/tvAuthorName"
+        android:layout_marginStart="5dp"
+        android:layout_toEndOf="@id/tvAuthorName"
+        android:textSize="16sp"
         tools:text="Volleyball" />
 
     <TextView
@@ -49,8 +49,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/tvActivityName"
         android:layout_marginStart="5dp"
-        android:layout_marginEnd="2dp"
-        android:layout_toRightOf="@id/ivGroup"
+        android:layout_marginEnd="5dp"
+        android:layout_toEndOf="@id/ivGroup"
+        android:textSize="16sp"
         tools:text="Wenjuan @" />
 
     <TextView
@@ -58,36 +59,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:textColor="#2958E8"
-        tools:text="1d away" />
+        tools:text="1d away"
+        android:textSize="18sp"/>
 
     <ImageView
         android:id="@+id/ivMemberRegistered"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/tvLocation"
-        android:layout_marginStart="5dp"
-        android:layout_toEndOf="@id/ivGroup"
         app:srcCompat="@drawable/ic_baseline_group" />
-
-    <ImageView
-        android:id="@+id/ivComment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tvLocation"
-        android:layout_marginStart="5dp"
-        android:layout_toEndOf="@id/tvRegCount"
-        app:srcCompat="@drawable/ic_baseline_message_24" />
-
-    <TextView
-        android:id="@+id/tvCommentCount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tvLocation"
-        android:layout_alignBottom="@id/ivComment"
-        android:layout_marginStart="3dp"
-        android:layout_toRightOf="@id/ivComment"
-        tools:text="12/20" />
 
     <TextView
         android:id="@+id/tvLocation"
@@ -95,36 +75,58 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/tvDateTime"
         android:layout_marginStart="5dp"
+        android:layout_marginBottom="5dp"
         android:layout_toEndOf="@id/ivLocation"
-        android:text="Community center" />
+        android:text="Community center"
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/tvDateTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tvDescription"
+        android:layout_below="@id/ivGroup"
         android:layout_marginStart="5dp"
-        android:layout_toEndOf="@id/ivGroup"
+        android:layout_marginBottom="5dp"
+        android:layout_toEndOf="@id/ivDateTime"
+        android:textColor="#757474"
+        android:textSize="18sp"
         tools:text="Dec 12 Sat: 11:00 am-12:00pm" />
 
     <TextView
         android:id="@+id/tvDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tvAuthorName"
+        android:layout_below="@id/ivMemberRegistered"
         android:layout_marginStart="5dp"
-        android:layout_toRightOf="@id/ivGroup"
-        tools:text="Let's have some fun this Saturday" />
+        android:layout_marginBottom="5dp"
+        android:layout_toEndOf="@id/ivDescription"
+        android:layout_weight="1"
+        android:scrollHorizontally="false"
+        android:textSize="18sp"
+        tools:text="Let's have some fun this Saturdaysssssssssssssssssssssssssssssssssssssssssssssss" />
 
     <TextView
         android:id="@+id/tvRegCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/tvLocation"
-        android:layout_alignBottom="@id/ivMemberRegistered"
-        android:layout_marginStart="3dp"
-        android:layout_toRightOf="@id/ivMemberRegistered"
+        android:layout_marginStart="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_toEndOf="@id/ivMemberRegistered"
+        android:textColor="#0000FF"
+        android:textSize="18sp"
         tools:text="12/20" />
+
+    <TextView
+        android:id="@+id/tvCommentCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvDescription"
+        android:layout_marginStart="3dp"
+        android:layout_toEndOf="@id/ivComment"
+        android:textColor="#0000FF"
+        android:textSize="18sp"
+        tools:text="0" />
 
     <Button
         android:id="@+id/btnAddActivity"
@@ -134,8 +136,39 @@
         android:layout_alignParentRight="true"
         android:background="@drawable/shape"
         android:text="Add"
-        android:textColor="#FFFFFF"
-        android:textSize="12sp" />
+        android:textSize="14sp"
+        android:textColor="#FFFFFF" />
+
+    <ImageView
+        android:id="@+id/ivLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvDateTime"
+        app:srcCompat="@drawable/ic_baseline_location_on_24" />
+
+    <ImageView
+        android:id="@+id/ivDateTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ivGroup"
+        android:layout_marginBottom="5dp"
+        app:srcCompat="@drawable/ic_baseline_schedule" />
+
+    <ImageView
+        android:id="@+id/ivDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ivMemberRegistered"
+        android:layout_marginBottom="5dp"
+        app:srcCompat="@drawable/ic_baseline_description_24" />
+
+    <ImageView
+        android:id="@+id/ivComment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvDescription"
+        android:layout_marginBottom="5dp"
+        app:srcCompat="@drawable/ic_baseline_message_24" />
 
     <TextView
         android:id="@+id/tvDayofWeek"
@@ -145,7 +178,7 @@
         android:layout_marginStart="0dp"
         android:layout_toEndOf="@id/tvActivityName"
         android:text="Sat"
-        android:textColor="#2B2B2B"
+        android:textColor="#404040"
         android:textSize="18sp" />
 
     <TextView
@@ -156,4 +189,7 @@
         android:layout_alignParentEnd="true"
         android:textColor="#D60909"
         tools:text="(New)" />
+
+
 </RelativeLayout>
+</ScrollView>

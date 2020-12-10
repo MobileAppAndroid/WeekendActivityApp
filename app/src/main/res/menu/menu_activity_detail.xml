@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_activity"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_games"
+        android:title="Activity"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_registeredMembers"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_how_to_reg_24"
+        android:title="Registered"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_comment"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_message_24"
+        android:title="Comments"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_poll"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_poll_24"
+        android:title="Poll"
+        app:showAsAction="ifRoom" />
+
+</menu>

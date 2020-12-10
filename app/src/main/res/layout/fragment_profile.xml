@@ -24,6 +24,7 @@
             android:cropToPadding="false"
             tools:src="@tools:sample/avatars" />
 
+
         <TextView
         android:id="@+id/tvUsername"
         android:layout_width="wrap_content"
@@ -31,14 +32,6 @@
         android:layout_below="@+id/ivProfile"
         android:layout_centerHorizontal="true"
         tools:text="Wenjuan" />
-
-        <TextView
-            android:id="@+id/tvScreenName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tvUsername"
-            android:layout_centerHorizontal="true"
-            tools:text="\@wenjuan" />
 
 
         <Button
