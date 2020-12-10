@@ -116,7 +116,7 @@ public class AddFriendsActivity extends AppCompatActivity
                     // the criterias.
                     arrayUsers = new ArrayList<>();
 
-                    for(ParseUser user : users)
+                    for (ParseUser user : users)
                     {
                         if (!currentUser.getUsername().equals(user.getUsername()))
                         {
