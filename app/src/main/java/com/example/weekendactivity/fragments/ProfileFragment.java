@@ -96,11 +96,13 @@ public class ProfileFragment extends Fragment {
         tvUsername = view.findViewById(R.id.tvUsername);
         btnLogout = view.findViewById(R.id.btnLogout);
         ivProfile = view.findViewById(R.id.ivProfile);
+
         btnFriends = view.findViewById(R.id.btnFriends);
 
         tvUsername.setText("@" + ParseUser.getCurrentUser().getUsername());
 
         String accountName = ParseUser.getCurrentUser().getUsername()+"@";
+
 
         if (ParseUser.getCurrentUser().getString("screenName") != null){
             accountName = accountName + ParseUser.getCurrentUser().getString("screenName");
