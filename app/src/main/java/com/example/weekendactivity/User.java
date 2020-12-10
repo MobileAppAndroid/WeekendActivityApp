@@ -6,6 +6,7 @@ import com.parse.ParseClassName;
 import com.parse.ParseFile;
 import com.parse.ParseUser;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @ParseClassName("_User")
@@ -16,10 +17,7 @@ public class User extends ParseUser {
     public static final String KEY_PROFILEIMAGE = "profileImage";
     public static final String KEY_ACTIVITIES = "activities";
     public static final String KEY_GROUPS = "groups";
-
-    public String getUsername() { return getString(KEY_USERNAME);}
-
-    public void setUsername(String username) { put(KEY_USERNAME, username);}
+    public static final String KEY_FRIENDS = "friends";
 
     public String getScreenname() { return getString(KEY_SCREENNAME);}
 
@@ -62,6 +60,33 @@ public class User extends ParseUser {
             groups.remove(group.getObjectId());
         }
         put(KEY_GROUPS, groups);
+    }
+
+    public List<String> getFriends(){ return getList(KEY_FRIENDS); }
+
+    public void setFriends(List<String> users){
+        List<String> friends = new ArrayList<>();
+        for ( String user : users) {
+            friends.add(user);
+        }
+        put(KEY_FRIENDS, friends); }
+
+    public void addToFriends(String user){
+        List<String> friends = getFriends();
+        if (friends != null) {
+            if (friends.contains(user)){ return; }
+        }
+        friends.add(user);
+        put(KEY_FRIENDS,friends);
+    }
+
+    public void deleteFromFriends(String user) {
+        List<String> friends = getFriends();
+        if(friends.contains(user)) {
+            friends.remove(user);
+            put(KEY_FRIENDS, friends);
+        }
+        else{ return; }
     }
 
 

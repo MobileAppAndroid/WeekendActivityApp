@@ -148,7 +148,7 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-//        btnFriends.setText();
+        btnFriends.setText("(#) Friends");
 
     }
 

@@ -37,6 +37,7 @@ public class AddFriendsActivity extends AppCompatActivity
 {
     int count = 0;
     Button btnDone;
+    List<String> friends;
 
     ListView search_users;
     ArrayAdapter<String> usersSearchAdapter;
@@ -51,6 +52,8 @@ public class AddFriendsActivity extends AppCompatActivity
         search_users = (ListView) findViewById(R.id.search_users);
         btnDone = findViewById(R.id.btnDone);
 
+        friends = new ArrayList<>();
+
         this.setTitle("Add Friends");
 
         btnDone.setOnClickListener(new View.OnClickListener()
@@ -61,6 +64,7 @@ public class AddFriendsActivity extends AppCompatActivity
                 goProfileFragment();
             }
         });
+
     }
 
     @Override
@@ -101,6 +105,7 @@ public class AddFriendsActivity extends AppCompatActivity
     }
 
     public void findUsers() {
+        final User userModel = new User();
         ParseQuery<ParseUser> query = ParseUser.getQuery();
         final User currentUser = (User) ParseUser.getCurrentUser();
         // query.whereEqualTo("email", "email@example.com");
@@ -131,13 +136,22 @@ public class AddFriendsActivity extends AppCompatActivity
                     search_users.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                            Toast.makeText(AddFriendsActivity.this, "Clicked!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AddFriendsActivity.this, "Added friend!", Toast.LENGTH_SHORT).show();
                             count++;
 
-                            Log.d("AddFriendsActivity", arrayUsers.get(i));
+                            if (!friends.contains(arrayUsers.get(i)))
+                            {
+                                friends.add(arrayUsers.get(i));
+                            }
+
+                            userModel.setFriends(friends);
+                            Log.d("AddFriendsActivity", String.valueOf(friends.size()));
                         }
+
                     });
 
+//                    User user = new User();
+//                    user.setFriends(friends);
 
                 } else {
                     // Something went wrong.
@@ -151,7 +165,7 @@ public class AddFriendsActivity extends AppCompatActivity
 
     private void goProfileFragment()
     {
-        Intent i = new Intent(this, ProfileFragment.class);
+        Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
 
         // finish();

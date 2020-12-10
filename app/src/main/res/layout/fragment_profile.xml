@@ -50,6 +50,7 @@
             android:layout_marginStart="158dp"
             android:layout_marginTop="181dp"
             android:background="#FFFFFF"
+            android:textAllCaps="false"
             android:textColor="#716F6F"
             tools:text="12 friends" />
 
