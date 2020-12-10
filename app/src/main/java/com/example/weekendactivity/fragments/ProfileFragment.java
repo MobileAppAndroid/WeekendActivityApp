@@ -1,5 +1,6 @@
 package com.example.weekendactivity.fragments;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,7 +18,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.weekendactivity.AddFriendsActivity;
+import com.example.weekendactivity.CreateGroupActivity;
 import com.example.weekendactivity.LoginActivity;
+import com.example.weekendactivity.MainActivity;
 import com.example.weekendactivity.R;
 import com.example.weekendactivity.User;
 import com.parse.ParseUser;
@@ -40,6 +44,7 @@ public class ProfileFragment extends Fragment {
     private TextView tvScreenname;
     private Button btnLogout;
     private ImageView ivProfile;
+    private Button btnFriends;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -83,6 +88,7 @@ public class ProfileFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_profile, container, false);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -90,7 +96,13 @@ public class ProfileFragment extends Fragment {
         tvUsername = view.findViewById(R.id.tvUsername);
         btnLogout = view.findViewById(R.id.btnLogout);
         ivProfile = view.findViewById(R.id.ivProfile);
+
+        btnFriends = view.findViewById(R.id.btnFriends);
+
+        tvUsername.setText("@" + ParseUser.getCurrentUser().getUsername());
+
         String accountName = ParseUser.getCurrentUser().getUsername()+"@";
+
 
         if (ParseUser.getCurrentUser().getString("screenName") != null){
             accountName = accountName + ParseUser.getCurrentUser().getString("screenName");
@@ -106,6 +118,7 @@ public class ProfileFragment extends Fragment {
             Glide.with(getContext())
                     .load(ParseUser.getCurrentUser().getParseFile("profileImage").getUrl())
                     .transform(new RoundedCornersTransformation(radius, margin))
+                    .circleCrop()
                     .into(ivProfile);
         }
         else
@@ -114,6 +127,7 @@ public class ProfileFragment extends Fragment {
             Glide.with(getContext())
                     .load("http://via.placeholder.com/300.png")
                     .transform(new RoundedCornersTransformation(radius, margin))
+                    .circleCrop()
                     .into(ivProfile);
         }
 
@@ -126,11 +140,32 @@ public class ProfileFragment extends Fragment {
             }
         });
 
+
+        btnFriends.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                Intent i = new Intent(getActivity(), AddFriendsActivity.class);
+                startActivity(i);
+            }
+        });
+
+        btnFriends.setText("(#) Friends");
+
     }
 
     private void goLogin() {
         Intent i = new Intent(getContext(), LoginActivity.class);
         startActivity(i);
         return;
+    }
+
+    public void onResume()
+    {
+        super.onResume();
+
+        // Set title bar
+        ((MainActivity) getActivity()).setActionBarTitle("Profile");
     }
 }

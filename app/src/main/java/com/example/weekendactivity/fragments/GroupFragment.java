@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import com.example.weekendactivity.CreateGroupActivity;
 import com.example.weekendactivity.Group;
 import com.example.weekendactivity.GroupAdapter;
+import com.example.weekendactivity.MainActivity;
 import com.example.weekendactivity.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.parse.FindCallback;
@@ -98,5 +99,13 @@ public class GroupFragment extends Fragment
                 groupAdapter.notifyDataSetChanged();
             }
         });
+    }
+
+    public void onResume()
+    {
+        super.onResume();
+
+        // Set title bar
+        ((MainActivity) getActivity()).setActionBarTitle("Groups");
     }
 }

@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 
 import com.example.weekendactivity.Activity;
 import com.example.weekendactivity.ActivityAdapter;
+import com.example.weekendactivity.MainActivity;
 import com.example.weekendactivity.R;
 import com.example.weekendactivity.User;
 import com.parse.FindCallback;
@@ -130,5 +131,13 @@ public class ActivityFragment extends Fragment {
             }
         });
 
+    }
+
+    public void onResume()
+    {
+        super.onResume();
+
+        // Set title bar
+        ((MainActivity) getActivity()).setActionBarTitle("Activities");
     }
 }
