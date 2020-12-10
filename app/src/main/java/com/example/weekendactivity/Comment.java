@@ -29,8 +29,7 @@ public class Comment extends ParseObject {
     public void setContent(String content){
         put(KEY_CONTENT, content);
     }
-    public ParseUser getAuthor(){
-        return getParseUser(KEY_AUTHOR);
+    public ParseUser getAuthor(){ return getParseUser(KEY_AUTHOR);
     }
 
     public void setAuthor(ParseUser author){

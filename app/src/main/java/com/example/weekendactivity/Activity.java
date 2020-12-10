@@ -5,10 +5,13 @@ import com.parse.ParseClassName;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 
+import org.parceler.Parcel;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+@Parcel(analyze={Activity.class})
 @ParseClassName("Activity")
 public class Activity extends ParseObject {
 
