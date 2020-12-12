@@ -62,4 +62,8 @@ public class ActivityDetail extends AppCompatActivity
         // Set default selection
         bottomNavigationView.setSelectedItemId(R.id.action_activity);
     }
+    public void setActionBarTitle(String title)
+    {
+        getSupportActionBar().setTitle(title);
+    }
 }

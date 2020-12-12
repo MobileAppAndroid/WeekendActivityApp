@@ -1,6 +1,7 @@
 package com.example.weekendactivity;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import com.bumptech.glide.load.MultiTransformation;
 import com.bumptech.glide.load.resource.bitmap.FitCenter;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.parse.ParseFile;
+import com.parse.ParseUser;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -77,20 +79,30 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
         public void bind(Comment comment) {
 
             User commentAuthor = (User) comment.getAuthor();
+            final User currentUser = (User) ParseUser.getCurrentUser();
             Date createdAt = comment.getCreatedAt();
             DateFormat dateFormat = new SimpleDateFormat("MMM d h:mm aaa", Locale.ENGLISH);
+
+            String authorLabel;
+            if (commentAuthor.getObjectId().equals(currentUser.getObjectId())){
+                authorLabel = " (Me) ";
+                tvScreenname.setTextColor(Color.RED);
+            } else{
+                authorLabel = " ";
+                tvScreenname.setTextColor(Color.GRAY);
+            }
+
+            if (commentAuthor.getScreenname() != null) {
+                tvScreenname.setText(commentAuthor.getScreenname()+authorLabel);
+            } else{
+                tvScreenname.setText(commentAuthor.getUsername()+authorLabel);
+            }
 
             if(comment.getContent() !=null ){
                 tvContent.setText(comment.getContent());
             }
             else{
                 commentContainer.removeView(tvContent);
-            }
-
-            if (commentAuthor.getScreenname() != null) {
-                tvScreenname.setText(commentAuthor.getScreenname());
-            } else{
-                tvScreenname.setText(commentAuthor.getUsername());
             }
 
             tvDatetime.setText("\u2022" + " "+dateFormat.format(createdAt));

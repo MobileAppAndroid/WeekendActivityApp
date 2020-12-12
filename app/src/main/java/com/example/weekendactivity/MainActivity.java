@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.example.weekendactivity.fragments.ActivityFragment;
+import com.example.weekendactivity.fragments.ComposeFragment;
 import com.example.weekendactivity.fragments.GroupFragment;
 import com.example.weekendactivity.fragments.ProfileFragment;
 import com.example.weekendactivity.fragments.ScheduleFragment;
@@ -44,7 +45,7 @@ public class MainActivity extends AppCompatActivity
                          fragment = new GroupFragment();
                         break;
                     case R.id.action_create:
-                         fragment = new ActivityFragment();
+                         fragment = new ComposeFragment();
                         break;
                     case R.id.action_schedule:
                          fragment = new ScheduleFragment();
@@ -61,7 +62,9 @@ public class MainActivity extends AppCompatActivity
             }
         });
         // Set default selection
+
         bottomNavigationView.setSelectedItemId(R.id.action_activity);
+
     }
 
     public void setActionBarTitle(String title)

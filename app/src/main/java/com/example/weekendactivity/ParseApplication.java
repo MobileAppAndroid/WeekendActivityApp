@@ -17,6 +17,8 @@ public class ParseApplication extends Application {
         ParseObject.registerSubclass(User.class);
         ParseObject.registerSubclass(Comment.class);
         //Parse.enableLocalDatastore();
+
+        Parse.enableLocalDatastore(this);
         Parse.initialize(new Parse.Configuration.Builder(this)
                 .applicationId("C1S9b9UgDwLwt5q007GvOuf5XPbsahomtrvsWwr2")
                 .clientKey("bqCVEUqkpePX70dhg9OpC4y0Xx6ntnnHxhSIQ5Zt")

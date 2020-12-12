@@ -11,14 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-    <TextView
-        android:id="@+id/tvRegistered"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:layout_gravity="center_horizontal"
-        android:text="Registered Members"
-        android:textSize="24sp" />
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvRegisteredMembers"

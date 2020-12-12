@@ -104,9 +104,28 @@ public class Activity extends ParseObject {
     public List<String> getComments(){ return getList(KEY_COMMENTS);};
 
     public void addToComments(Comment comment){
-        List<String> comments = getComments();
+        List<String> comments;
+        if( getComments() != null){
+            comments = getComments();
+        }
+        else {
+            comments = new ArrayList<>();
+        }
         comments.add(comment.getObjectId());
-        put(KEY_COMMENTS, comment);
+        put(KEY_COMMENTS, comments);
+
+    }
+
+    public void addToComments(String commentId){
+        List<String> comments;
+        if( getComments() != null ){
+            comments = getComments();
+
+        }else {
+            comments = new ArrayList<>();
+        }
+        comments.add(commentId);
+        put(KEY_COMMENTS, comments);
     }
 
 }

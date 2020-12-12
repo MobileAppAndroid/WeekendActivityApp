@@ -1,5 +1,7 @@
 package com.example.weekendactivity;
 
+import android.text.Editable;
+
 import com.parse.ParseClassName;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
@@ -13,6 +15,7 @@ public class Comment extends ParseObject {
     public static final String KEY_AUTHOR = "author";
     public static final String KEY_CONTENT = "content";
     public static final String KEY_IMAGE = "image";
+    public static final String KEY_ACTIVITY = "activityToComment";
 
     public ParseFile getImage(){
         return getParseFile(KEY_IMAGE);
@@ -35,5 +38,9 @@ public class Comment extends ParseObject {
     public void setAuthor(ParseUser author){
         put(KEY_AUTHOR, author);
     }
+
+    public Activity getKeyActivity(){ return (Activity) getParseObject(KEY_ACTIVITY);}
+
+    public void setKeyActivity(Activity activity){ put(KEY_ACTIVITY, activity);}
 
 }
