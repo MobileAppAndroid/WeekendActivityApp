@@ -68,7 +68,7 @@ public class GroupAdapter extends RecyclerView.Adapter<GroupAdapter.ViewHolder>
         public ViewHolder(@NonNull View itemView)
         {
             super(itemView);
-            ivGroup = itemView.findViewById(R.id.ivGroup);
+            ivGroup = itemView.findViewById(R.id.ivGroupImage);
             tvGroupName = itemView.findViewById(R.id.tvGroupName);
             tvMembers = itemView.findViewById(R.id.tvMembers);
             tvDescription = itemView.findViewById(R.id.tvDescription);

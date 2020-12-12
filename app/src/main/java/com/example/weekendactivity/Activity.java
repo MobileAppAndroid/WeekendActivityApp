@@ -72,7 +72,7 @@ public class Activity extends ParseObject {
 
     public List<String> getMemberRegistered(){ return getList(KEY_MEMBERREGISTERED); }
 
-    public void setMemberregistered(List<User> users){
+    public void setMemberRegistered(List<User> users){
         List<String> memberRegistered = new ArrayList<>();
         for ( User user : users) {
             memberRegistered.add(user.getObjectId());
