@@ -14,472 +14,571 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-
-        android:layout_gravity="center_horizontal"
-        android:orientation="vertical">
-
-            <DatePicker
-                android:id="@+id/dpDateInMonth"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="-30dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="-50dp"
-                android:layout_marginBottom="-30dp"/>
-
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:layout_margin="5dp">
-            <TextView
-                android:id="@+id/tvActivityCard"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:text="Activity Card"
-                android:layout_marginBottom="8dp"/>
-            <Spinner
-                android:id="@+id/spinnerActivtyCards"
-                android:layout_toEndOf="@id/tvActivityCard"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-            <TextView
-                android:id="@+id/tvCreateActivityFromScratch"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@id/tvActivityCard"
-                android:layout_marginBottom="8dp"
-                android:textSize="16sp"
-                android:text="Create a new Activty from scratch"
-                />
+            android:layout_height="match_parent"
 
-            <TextView
-                android:id="@+id/tvEvent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tvCreateActivityFromScratch"
-                android:text="Event"
-                android:textSize="20sp"
-                android:layout_alignParentStart="true"/>
-            <EditText
-                android:id="@+id/etEventName"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/tvCreateActivityFromScratch"
-                android:layout_alignTop="@id/tvEvent"
-                android:background="@drawable/strokebox"
-                android:layout_marginBottom="8dp"
-                android:layout_marginStart="10dp"
-                android:hint="Event name"
-                android:textSize="20sp"
-                android:maxLines="1"
-                android:layout_toEndOf="@+id/tvEvent"/>
-            <TextView
-                android:id="@+id/tvNotify"
-                android:layout_below="@id/tvEvent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:textSize="20sp"
-                android:text="Notify"
-                />
-            <Spinner
-                android:id="@+id/spinnerGroupToNotify"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tvEvent"
-                android:layout_toEndOf="@id/tvNotify"
-                android:layout_toStartOf="@id/btnSync"
-                android:layout_marginStart="10dp"
-                android:layout_marginBottom="8dp"
-                android:autofillHints="group"/>
+                android:layout_margin="8dp"
+                android:background="#B8D5CE"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="8dp">
 
-            <Button
-                android:id="@+id/btnSync"
-                android:layout_width="wrap_content"
-                android:layout_height="35dp"
-                android:layout_alignBottom="@id/spinnerGroupToNotify"
-                android:layout_alignParentEnd="true"
-                android:text="Sync"
-                android:textSize="12sp" />
-            <TextView
-                android:id="@+id/tvDuration"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tvNotify"
-                android:layout_marginBottom="8dp"
-                android:textSize="20sp"
-                android:text="Duration"/>
-            <EditText
-                android:id="@+id/etDuration"
-                android:layout_width="30dp"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@id/tvDuration"
-                android:inputType="numberDecimal"
-                android:layout_below="@id/tvNotify"
-                android:layout_toEndOf="@id/tvDuration"
-                android:background="@drawable/strokebox"
-                android:layout_marginEnd="10dp"
-                android:layout_marginStart="10dp"
-                android:hint="1.5"/>
-            <TextView
-                android:id="@+id/tvHrs"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:text="hrs"
-                android:layout_below="@id/tvNotify"
-                android:layout_toEndOf="@id/etDuration"
-                android:layout_marginBottom="8dp"
-                />
-            <TextView
-                android:id="@+id/tvConstraint"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Constraint"
-                android:layout_below="@id/tvDuration"
-                android:textSize="20sp"
-                />
-            <TextView
-                android:id="@+id/tvSaSu"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tvDuration"
-                android:layout_toEndOf="@id/tvConstraint"
-                android:layout_marginStart="10sp"
-                android:textSize="20sp"
-                android:text="Sa/Su"
-                />
-            <CheckBox
-                android:id="@+id/cbConstraintSaSu"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tvDuration"
-                android:layout_toEndOf="@id/tvSaSu"
-                android:layout_alignBottom="@id/tvSaSu"
-                android:layout_marginStart="4dp"
-
-                />
-            <TextView
-                android:id="@+id/tvWeekDays"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tvDuration"
-                android:layout_toEndOf="@id/cbConstraintSaSu"
-                android:layout_marginStart="10sp"
-                android:textSize="20sp"
-                android:text="Mo-Fr"
-                />
-            <CheckBox
-                android:id="@+id/cbConstraintWeekdays"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tvDuration"
-                android:layout_toEndOf="@id/tvWeekDays"
-                android:layout_alignBottom="@id/tvWeekDays"
-                android:layout_marginStart="4dp"
-
-                />
-            <TextView
-                android:id="@+id/tvMorning"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tvConstraint"
-                android:layout_toEndOf="@id/tvConstraint"
-                android:layout_marginStart="10sp"
-                android:textSize="20sp"
-                android:text="am"
-                />
-            <CheckBox
-                android:id="@+id/cbConstraintMorning"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tvSaSu"
-                android:layout_toEndOf="@id/tvMorning"
-                android:layout_alignBottom="@id/tvMorning"
-                android:layout_marginStart="4dp"
-
-                />
-
-            <TextView
-                android:id="@+id/tvAfternoon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tvWeekDays"
-                android:layout_toEndOf="@id/cbConstraintMorning"
-                android:layout_marginStart="10sp"
-                android:textSize="20sp"
-                android:text="pm"
-                />
-            <CheckBox
-                android:id="@+id/cbConstraintAfternoon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tvWeekDays"
-                android:layout_toEndOf="@id/tvAfternoon"
-                android:layout_alignBottom="@id/tvAfternoon"
-                android:layout_marginStart="4dp"
-
-                />
-            <TextView
-                android:id="@+id/tvNight"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tvWeekDays"
-                android:layout_toEndOf="@id/cbConstraintAfternoon"
-                android:layout_marginStart="10sp"
-                android:textSize="20sp"
-                android:text="after 6pm"
-                />
-            <CheckBox
-                android:id="@+id/cbConstraintNight"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tvWeekDays"
-                android:layout_toEndOf="@id/tvNight"
-                android:layout_alignBottom="@id/tvNight"
-                android:layout_marginStart="4dp"
-                />
-
-            <TextView
-                android:id="@+id/tvRepeat"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Repeat"
-                android:textSize="20sp"
-                android:layout_below="@id/tvMorning"
-                />
-
-            <RadioGroup
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_toEndOf="@id/tvRepeat"
-                android:layout_below="@id/tvMorning"
-                android:layout_marginBottom="8dp">
-                <RadioButton
-                    android:id="@+id/radio_eachWeek"
+                <DatePicker
+                    android:id="@+id/dpDateInMonth"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:text="each week" />
-                <RadioButton
-                    android:id="@+id/radio_eachMonth"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:text="each month"/>
-                <RadioButton
-                    android:id="@+id/radio_noRepeat"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:text="no"/>
-
-            </RadioGroup>
-
-            <TextView
-                android:id="@+id/tvTimeOptions"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:text="Time Options: "
-                android:textSize="20sp"
-                android:layout_below="@id/tvRepeat"/>
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="-50dp" />
+            </androidx.cardview.widget.CardView>
 
 
+            <androidx.cardview.widget.CardView
 
-
-            <Button
-                android:id="@+id/btnAddTimeOption"
-                android:layout_width="wrap_content"
-                android:layout_height="35dp"
-                android:layout_alignBottom="@id/tvTimeOptions"
-                android:layout_alignParentEnd="true"
-                android:text="Add"
-                android:textSize="12sp" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvTimeOptions"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tvTimeOptions"
-                android:layout_toEndOf="@id/tvTimeOptions"
-                android:layout_marginBottom="8dp"
-                />
-
-            <TextView
-                android:id="@+id/tvParticipantNum"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/rvTimeOptions"
-                android:layout_marginBottom="8dp"
-                android:textSize="20sp"
-                android:text="No. Participants"
-                />
-            <EditText
-                android:id="@+id/etMinParticipants"
-                android:layout_width="30dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/rvTimeOptions"
-                android:layout_toEndOf="@id/tvParticipantNum"
-                android:layout_alignBottom="@id/tvParticipantNum"
-                android:background="@drawable/strokebox"
-                android:inputType="number"
-                android:hint="2"
-                android:textSize="20sp"
-                android:layout_marginStart="10dp"
-
-                />
-            <TextView
-                android:id="@+id/tvTo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TO"
-                android:textSize="20sp"
-                android:layout_below="@id/rvTimeOptions"
-                android:layout_marginStart="10dp"
-                android:layout_marginBottom="8dp"
-                android:layout_toEndOf="@id/etMinParticipants"
-                />
-            <EditText
-                android:id="@+id/etMaxParticipants"
-                android:layout_width="30dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/rvTimeOptions"
-                android:layout_toEndOf="@id/tvTo"
-                android:layout_alignBottom="@id/tvParticipantNum"
-                android:background="@drawable/strokebox"
-                android:inputType="number"
-                android:hint="2"
-                android:textSize="20sp"
-                android:layout_marginStart="10dp"
-                />
-            <TextView
-                android:id="@+id/tvLocation"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Location"
-                android:layout_below="@id/tvParticipantNum"
-                android:layout_marginBottom="8dp"
-                android:textSize="20sp"
-                />
-            <EditText
-                android:id="@+id/etLocation"
+                android:id="@+id/cvActivityCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:layout_below="@id/tvParticipantNum"
-                android:layout_alignTop="@id/tvLocation"
-                android:layout_marginStart="10dp"
-                android:layout_toEndOf="@id/tvLocation"
-                android:layout_toStartOf="@id/btnAddLocationOption"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
-                android:background="@drawable/strokebox"
-                android:maxLines="2"
-                android:ems="20"/>
-            <Button
-                android:id="@+id/btnAddLocationOption"
-                android:layout_width="wrap_content"
-                android:layout_height="35dp"
-                android:layout_alignBottom="@id/tvLocation"
-                android:layout_alignParentEnd="true"
-                android:text="Add"
-                android:textSize="12sp" />
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvLocationOptions"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/etLocation"
-                android:layout_toEndOf="@id/tvTimeOptions"
-                android:layout_marginBottom="8dp"
-                />
-            <TextView
-                android:id="@+id/tvDescription"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Description"
-                android:textSize="20sp"
-                android:layout_below="@id/rvLocationOptions"
-                android:layout_marginBottom="8dp"
-                />
+                android:background="#8C9EFF"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="8dp">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/tvActivityCard"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Activity Card"
+                        android:textColor="#FF9E80"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        tools:layout_editor_absoluteX="61dp"
+                        tools:layout_editor_absoluteY="34dp" />
 
-            <EditText
-                android:id="@+id/etDescription"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/rvLocationOptions"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="10dp"
-                android:layout_toEndOf="@id/tvDescription"
-                android:layout_marginBottom="8dp"
-                android:background="@drawable/strokebox"
-                android:ems="12"
-                android:hint="Leave description of the event"
-                android:inputType="textMultiLine"
-                android:maxLines="10"
-                android:textSize="20sp" />
-            <CheckBox
-            android:id="@+id/cbSetUpPoll"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/etDescription"
-            android:layout_toStartOf="@id/tvSetUpPolls"
-            android:layout_alignBottom="@id/tvAddToCards"/>
-            <TextView
-                android:id="@+id/tvSetUpPolls"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/etDescription"
-                android:layout_toStartOf="@id/cbAddToCards"
-                android:text="Set up polls"
-                android:textSize="15sp"
-                />
-
-            <CheckBox
-                android:id="@+id/cbAddToCards"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/etDescription"
-                android:layout_toStartOf="@id/tvAddToCards"
-                android:layout_alignBottom="@id/tvAddToCards"/>
-            <TextView
-                android:id="@+id/tvAddToCards"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/etDescription"
-                android:layout_alignParentEnd="true"
-                android:text="Add to cards"
-                android:textSize="15sp"
-                />
-            <Button
-                android:id="@+id/btnCreateActivity"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tvAddToCards"
-                android:layout_alignParentEnd="true"
-                android:textSize="15sp"
-                android:text="create"
-                />
-            <Button
-                android:id="@+id/btnCancelCreate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tvAddToCards"
-                android:layout_alignParentStart="true"
-                android:textSize="15sp"
-                android:text="cancel"
-                />
+                    <Spinner
+                        android:id="@+id/spinnerActivtyCards"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_toEndOf="@id/tvActivityCard"
+                        android:layout_alignBottom="@id/tvActivityCard"
+                        android:background="#FBF9F9" />
+                </RelativeLayout>
 
 
-        </RelativeLayout>
+            </androidx.cardview.widget.CardView>
 
-    </LinearLayout>
+                <androidx.cardview.widget.CardView
+
+                    android:id="@+id/cvCreateActivity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/cvActivityCard"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="8dp"
+                    android:layout_margin="8dp">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true">
+                        <TextView
+                            android:id="@+id/tvCreateActivityFromScratch"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:text="Create a new Activty from scratch"
+                            android:textColor="#8C9EFF"
+                            android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tvEvent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@id/tvCreateActivityFromScratch"
+                    android:text="Event"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    tools:layout_editor_absoluteX="61dp"
+                    tools:layout_editor_absoluteY="34dp" />
+
+                <EditText
+                    android:id="@+id/etEventName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/tvEvent"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_toEndOf="@+id/tvEvent"
+                    android:background="@drawable/strokebox"
+                    android:hint="Event name"
+                    android:maxLines="1"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tvNotify"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvEvent"
+                    android:layout_marginBottom="8dp"
+                    android:text="Notify"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    tools:layout_editor_absoluteX="61dp"
+                    tools:layout_editor_absoluteY="34dp" />
+
+                <Spinner
+                    android:id="@+id/spinnerGroupToNotify"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvEvent"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_toStartOf="@id/btnSync"
+                    android:layout_toEndOf="@id/tvNotify"
+                    android:autofillHints="group" />
+
+                <Button
+                    android:id="@+id/btnSync"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:layout_alignBottom="@id/spinnerGroupToNotify"
+                    android:layout_alignParentEnd="true"
+                    android:text="Sync"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    tools:layout_editor_absoluteX="61dp"
+                    tools:layout_editor_absoluteY="34dp" />
+
+                <TextView
+                    android:id="@+id/tvDuration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvNotify"
+                    android:layout_marginBottom="8dp"
+                    android:text="Duration"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    tools:layout_editor_absoluteX="61dp"
+                    tools:layout_editor_absoluteY="34dp" />
+
+                <EditText
+                    android:id="@+id/etDuration"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvNotify"
+                    android:layout_alignBottom="@id/tvDuration"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_toEndOf="@id/tvDuration"
+                    android:background="@drawable/strokebox"
+                    android:hint="1.5"
+                    android:inputType="numberDecimal" />
+
+                <TextView
+                    android:id="@+id/tvHrs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvNotify"
+                    android:layout_marginBottom="8dp"
+                    android:layout_toEndOf="@id/etDuration"
+                    android:text="hrs"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvConstraint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvDuration"
+                    android:text="Constraint"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    tools:layout_editor_absoluteX="61dp"
+                    tools:layout_editor_absoluteY="34dp" />
+
+                <TextView
+                    android:id="@+id/tvSaSu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvDuration"
+                    android:layout_marginStart="10sp"
+                    android:layout_toEndOf="@id/tvConstraint"
+                    android:text="Sa/Su"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/cbConstraintSaSu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvDuration"
+                    android:layout_alignBottom="@id/tvSaSu"
+                    android:layout_marginStart="4dp"
+                    android:layout_toEndOf="@id/tvSaSu"
+
+                    />
+
+                <TextView
+                    android:id="@+id/tvWeekDays"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvDuration"
+                    android:layout_marginStart="10sp"
+                    android:layout_toEndOf="@id/cbConstraintSaSu"
+                    android:text="Mo-Fr"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/cbConstraintWeekdays"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvDuration"
+                    android:layout_alignBottom="@id/tvWeekDays"
+                    android:layout_marginStart="4dp"
+                    android:layout_toEndOf="@id/tvWeekDays"
+
+                    />
+
+                <TextView
+                    android:id="@+id/tvMorning"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvConstraint"
+                    android:layout_marginStart="10sp"
+                    android:layout_toEndOf="@id/tvConstraint"
+                    android:text="am"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/cbConstraintMorning"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvSaSu"
+                    android:layout_alignBottom="@id/tvMorning"
+                    android:layout_marginStart="4dp"
+                    android:layout_toEndOf="@id/tvMorning"
+
+                    />
+
+                <TextView
+                    android:id="@+id/tvAfternoon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvWeekDays"
+                    android:layout_marginStart="10sp"
+                    android:layout_toEndOf="@id/cbConstraintMorning"
+                    android:text="pm"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/cbConstraintAfternoon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvWeekDays"
+                    android:layout_alignBottom="@id/tvAfternoon"
+                    android:layout_marginStart="4dp"
+                    android:layout_toEndOf="@id/tvAfternoon"
+
+                    />
+
+                <TextView
+                    android:id="@+id/tvNight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvWeekDays"
+                    android:layout_marginStart="10sp"
+                    android:layout_toEndOf="@id/cbConstraintAfternoon"
+                    android:text="after 6pm"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/cbConstraintNight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvWeekDays"
+                    android:layout_alignBottom="@id/tvNight"
+                    android:layout_marginStart="4dp"
+                    android:layout_toEndOf="@id/tvNight" />
+
+                <TextView
+                    android:id="@+id/tvRepeat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvMorning"
+                    android:text="Repeat"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    tools:layout_editor_absoluteX="61dp"
+                    tools:layout_editor_absoluteY="34dp" />
+
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvMorning"
+                    android:layout_marginBottom="8dp"
+                    android:layout_toEndOf="@id/tvRepeat"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/radio_eachWeek"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="each week"
+                        android:textSize="16sp" />
+
+                    <RadioButton
+                        android:id="@+id/radio_eachMonth"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="each month"
+                        android:textSize="16sp" />
+
+                    <RadioButton
+                        android:id="@+id/radio_noRepeat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="no"
+                        android:textSize="16sp" />
+
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/tvTimeOptions"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvRepeat"
+                    android:layout_marginBottom="8dp"
+                    android:text="Time Options: "
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    tools:layout_editor_absoluteX="61dp"
+                    tools:layout_editor_absoluteY="34dp" />
+
+
+                <Button
+                    android:id="@+id/btnAddTimeOption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:layout_alignBottom="@id/tvTimeOptions"
+                    android:layout_alignParentEnd="true"
+                    android:text="Add"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    tools:layout_editor_absoluteX="61dp"
+                    tools:layout_editor_absoluteY="34dp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvTimeOptions"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvTimeOptions"
+                    android:layout_marginBottom="8dp"
+                    android:layout_toEndOf="@id/tvTimeOptions" />
+
+                <TextView
+                    android:id="@+id/tvParticipantNum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/rvTimeOptions"
+                    android:layout_marginBottom="8dp"
+                    android:text="No. Participants"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    tools:layout_editor_absoluteX="61dp"
+                    tools:layout_editor_absoluteY="34dp" />
+
+                <EditText
+                    android:id="@+id/etMinParticipants"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/rvTimeOptions"
+                    android:layout_alignBottom="@id/tvParticipantNum"
+                    android:layout_marginStart="10dp"
+                    android:layout_toEndOf="@id/tvParticipantNum"
+                    android:background="@drawable/strokebox"
+                    android:hint="2"
+                    android:inputType="number"
+                    android:textSize="20sp"
+
+                    />
+
+                <TextView
+                    android:id="@+id/tvTo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/rvTimeOptions"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_toEndOf="@id/etMinParticipants"
+                    android:text="to"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/etMaxParticipants"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/rvTimeOptions"
+                    android:layout_alignBottom="@id/tvParticipantNum"
+                    android:layout_marginStart="10dp"
+                    android:layout_toEndOf="@id/tvTo"
+                    android:background="@drawable/strokebox"
+                    android:hint="2"
+                    android:inputType="number"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvParticipantNum"
+                    android:layout_marginBottom="8dp"
+                    android:text="Location"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    tools:layout_editor_absoluteX="61dp"
+                    tools:layout_editor_absoluteY="34dp" />
+
+                <EditText
+                    android:id="@+id/etLocation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvParticipantNum"
+                    android:layout_alignTop="@id/tvLocation"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_toStartOf="@id/btnAddLocationOption"
+                    android:layout_toEndOf="@id/tvLocation"
+                    android:background="@drawable/strokebox"
+                    android:ems="20"
+                    android:maxLines="2"
+                    android:textSize="16sp" />
+
+                <Button
+                    android:id="@+id/btnAddLocationOption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:layout_alignBottom="@id/tvLocation"
+                    android:layout_alignParentEnd="true"
+                    android:text="Add"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    tools:layout_editor_absoluteX="61dp"
+                    tools:layout_editor_absoluteY="34dp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvLocationOptions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/etLocation"
+                    android:layout_marginBottom="8dp"
+                    android:layout_toEndOf="@id/tvTimeOptions" />
+
+                <TextView
+                    android:id="@+id/tvDescription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/rvLocationOptions"
+                    android:layout_marginBottom="8dp"
+                    android:text="Description"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    tools:layout_editor_absoluteX="61dp"
+                    tools:layout_editor_absoluteY="34dp" />
+
+                <EditText
+                    android:id="@+id/etDescription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/rvLocationOptions"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_toEndOf="@id/tvDescription"
+                    android:background="@drawable/strokebox"
+                    android:ems="12"
+                    android:hint="Leave description of the event"
+                    android:inputType="textMultiLine"
+                    android:maxLines="10"
+                    android:textSize="16sp" />
+
+                <CheckBox
+                    android:id="@+id/cbSetUpPoll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/etDescription"
+                    android:layout_alignBottom="@id/tvAddToCards"
+                    android:layout_toStartOf="@id/tvSetUpPolls" />
+
+                <TextView
+                    android:id="@+id/tvSetUpPolls"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/etDescription"
+                    android:layout_toStartOf="@id/cbAddToCards"
+                    android:text="Set up polls"
+                    android:textSize="15sp" />
+
+                <CheckBox
+                    android:id="@+id/cbAddToCards"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/etDescription"
+                    android:layout_alignBottom="@id/tvAddToCards"
+                    android:layout_toStartOf="@id/tvAddToCards" />
+
+                <TextView
+                    android:id="@+id/tvAddToCards"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/etDescription"
+                    android:layout_alignParentEnd="true"
+                    android:text="Add to cards"
+                    android:textSize="15sp" />
+
+                <Button
+                    android:id="@+id/btnCreateActivity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvAddToCards"
+                    android:layout_alignParentEnd="true"
+                    android:text="create"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    tools:layout_editor_absoluteX="61dp"
+                    tools:layout_editor_absoluteY="34dp" />
+
+                <Button
+                    android:id="@+id/btnCancelCreate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvAddToCards"
+                    android:layout_alignParentStart="true"
+                    android:text="cancel"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    tools:layout_editor_absoluteX="61dp"
+                    tools:layout_editor_absoluteY="34dp" />
+
+
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
     </ScrollView>
 </FrameLayout>

@@ -72,7 +72,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
             ivUserProfile = itemView.findViewById(R.id.ivUserProfile);
             ivActivityImage = itemView.findViewById(R.id.ivActivityImage);
 
-            commentContainer = itemView.findViewById(R.id.container);
+            commentContainer = itemView.findViewById(R.id.rlCommentContainer);
 
         }
 

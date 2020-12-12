@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -20,12 +21,19 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
+import android.widget.Toast;
 
+import com.example.weekendactivity.Group;
 import com.example.weekendactivity.MainActivity;
 import com.example.weekendactivity.R;
 import com.example.weekendactivity.User;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -60,6 +68,8 @@ public class ComposeFragment extends Fragment {
     private Button btnAddLocation;
     private Button btnCancel;
     private Button btnCreateActivity;
+
+    private List<Group> allGroups;
 
 
     // TODO: Rename parameter arguments, choose names that match
@@ -154,8 +164,15 @@ public class ComposeFragment extends Fragment {
         btnCancel = view.findViewById(R.id.btnCancelCreate);
         btnCreateActivity = view.findViewById(R.id.btnCreateActivity);
 
-        Activity newActivity = new Activity();
+        allGroups = new ArrayList<>();
+
+        final Activity newActivity = new Activity();
         User author = (User) ParseUser.getCurrentUser();
+        if (author.getGroups()== null){
+            Toast.makeText(getContext(),TAG,Toast.LENGTH_SHORT).show();
+            return;
+        }
+        List<String> groupId = author.getGroups();
 
 
         btnCancel.setOnClickListener(new View.OnClickListener() {
@@ -164,10 +181,44 @@ public class ComposeFragment extends Fragment {
                 final FragmentTransaction ft = getFragmentManager().beginTransaction();
                 ft.replace(R.id.flContainer, new ActivityFragment(), "TAG: ActivityFragment");
                 ft.commit();
+                
+                ((BottomNavigationView)getActivity().findViewById(R.id.bottomNavigation)).setSelectedItemId(R.id.action_activity);
+            }
+        });
+
+        btnCreateActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
             }
         });
 
 
+    }
+
+    private void queryGroups()
+    {
+        ParseQuery<Group> query = ParseQuery.getQuery(Group.class);
+
+        query.findInBackground(new FindCallback<Group>()
+        {
+            @Override
+            public void done(List<Group> groups, ParseException e)
+            {
+                if (e != null)
+                {
+                    Log.e(TAG, "Issue with getting groups", e);
+                    return;
+                }
+
+//                for (Group group : groups)
+//                {
+//                    Log.i(TAG, )
+//                }
+
+                allGroups.addAll(groups);
+            }
+        });
     }
 
     public static void hideKeyboardFrom(Context context, View view) {
