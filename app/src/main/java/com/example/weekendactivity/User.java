@@ -2,6 +2,7 @@ package com.example.weekendactivity;
 
 import android.provider.ContactsContract;
 
+import com.google.android.gms.common.util.Strings;
 import com.parse.ParseClassName;
 import com.parse.ParseFile;
 import com.parse.ParseUser;
@@ -62,28 +63,29 @@ public class User extends ParseUser {
         put(KEY_GROUPS, groups);
     }
 
-    public List<String> getFriends(){ return getList(KEY_FRIENDS); }
-
-    public void setFriends(List<String> users){
-        List<String> friends = new ArrayList<>();
-        for ( String user : users) {
-            friends.add(user);
+    public List<String> getFriends(){
+        List<String> result = getList(KEY_FRIENDS);
+        if(result == null) {
+            return new ArrayList<String>();
         }
-        put(KEY_FRIENDS, friends); }
-
-    public void addToFriends(String user){
-        List<String> friends = getFriends();
-        if (friends != null) {
-            if (friends.contains(user)){ return; }
-        }
-        friends.add(user);
-        put(KEY_FRIENDS,friends);
+        return result;
     }
 
-    public void deleteFromFriends(String user) {
+   /* public void setFriends(List<User> users){
+        List<String> friends = new ArrayList<>();
+        for ( User user : users) {
+            friends.add(user.getObjectId());
+        }
+        put(KEY_FRIENDS, friends); }  */
+
+    public void addToFriends(User user){
+        addUnique(KEY_FRIENDS, user.getObjectId());
+    }
+
+    public void deleteFromFriends(User user) {
         List<String> friends = getFriends();
-        if(friends.contains(user)) {
-            friends.remove(user);
+        if(friends.contains(user.getObjectId())) {
+            friends.remove(user.getObjectId());
             put(KEY_FRIENDS, friends);
         }
         else{ return; }
