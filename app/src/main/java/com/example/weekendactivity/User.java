@@ -79,13 +79,13 @@ public class User extends ParseUser {
         put(KEY_FRIENDS, friends); }  */
 
     public void addToFriends(User user){
-        addUnique(KEY_FRIENDS, user.getObjectId());
+        addUnique(KEY_FRIENDS, user.getUsername());
     }
 
     public void deleteFromFriends(User user) {
         List<String> friends = getFriends();
-        if(friends.contains(user.getObjectId())) {
-            friends.remove(user.getObjectId());
+        if(friends.contains(user.getUsername())) {
+            friends.remove(user.getUsername());
             put(KEY_FRIENDS, friends);
         }
         else{ return; }

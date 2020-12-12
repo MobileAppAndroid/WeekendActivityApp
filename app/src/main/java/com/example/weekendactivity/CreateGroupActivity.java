@@ -7,12 +7,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.weekendactivity.fragments.GroupFragment;
+import com.parse.FindCallback;
 import com.parse.ParseException;
+import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
@@ -26,6 +31,16 @@ public class CreateGroupActivity extends AppCompatActivity
     private EditText etDescription;
     private Button btnCreateGroup;
 
+    private Spinner spFriendsList;
+    User currentUser;
+    List<String> currentFriends;
+    ArrayAdapter<String> friendsAdapter;
+
+    Group group;
+    List<String> currentMembers;
+    List<ParseUser> searchMembers = new ArrayList<>();
+    List<String> searchMembersUsernames = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -37,6 +52,47 @@ public class CreateGroupActivity extends AppCompatActivity
         etGroupName = findViewById(R.id.etGroupName);
         etDescription = findViewById(R.id.etDescription);
         btnCreateGroup = findViewById(R.id.btnCreateGroup);
+        spFriendsList = findViewById(R.id.spFriendsList);
+
+        currentUser = (User) ParseUser.getCurrentUser();
+        currentFriends = new ArrayList<>();
+        currentFriends.add("Add Friends to groups");
+        currentFriends = currentUser.getFriends();
+
+        group = new Group();
+        group.addToMembers((User) currentUser);
+        currentMembers = group.getMembers();
+
+        friendsAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, currentFriends);
+        friendsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spFriendsList.setAdapter(friendsAdapter);
+
+        spFriendsList.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if (!currentMembers.contains(currentFriends.get(i)))
+                {
+                    // add member
+                    Toast.makeText(CreateGroupActivity.this, "Added member!", Toast.LENGTH_SHORT).show();
+                    currentMembers.add(currentFriends.get(i));
+//                    group.addToMembers((User) searchMembers.get(i));
+                    group.saveInBackground();
+
+                } else {
+                    // remove member
+                    currentMembers.remove(currentFriends.get(i));
+                    Toast.makeText(CreateGroupActivity.this, "Removed member!", Toast.LENGTH_SHORT).show();
+                    group.put(Group.KEY_MEMBERS, currentMembers);
+                    group.saveInBackground();
+                }
+//                    Toast.makeText(CreateGroupActivity.this, "Clicked member!", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
         btnCreateGroup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,9 +118,11 @@ public class CreateGroupActivity extends AppCompatActivity
         group.setDescription(description);
         //group.addToMembers(currentUser);
         //group.addToManagers(currentUser);
-        List<User> members=new ArrayList<>();
-        members.add(currentUser);
-        group.setMembers(members);
+//        List<User> members=new ArrayList<>();
+//        members.add(currentUser);
+//        group.setMembers(members);
+
+        friendsAdapter.notifyDataSetChanged();
 
         group.saveInBackground(new SaveCallback() {
             @Override
@@ -80,6 +138,32 @@ public class CreateGroupActivity extends AppCompatActivity
 
                 Toast.makeText(CreateGroupActivity.this, "Group created Successfully", Toast.LENGTH_SHORT).show();
                 goGroupFragment();
+            }
+        });
+    }
+
+    public void searchAndDisplayUsers(String searchQuery) {
+        ParseQuery<ParseUser> query = ParseUser.getQuery();
+        query.whereContains(User.KEY_USERNAME, searchQuery);
+        query.whereNotEqualTo(User.KEY_USERNAME, ParseUser.getCurrentUser().getUsername());
+        query.findInBackground(new FindCallback<ParseUser>() {
+            public void done(List<ParseUser> users, ParseException e) {
+                if (e == null) {
+                    // The query was successful, returns the users that matches
+                    // the criteria.
+                    searchMembers = users;
+
+                    searchMembersUsernames.clear();
+                    for(ParseUser user : users) {
+                        searchMembersUsernames.add(user.getUsername());
+                    }
+
+                } else {
+                    // Something went wrong.
+                    Log.e("AddFriendsActivity", "Cannot get users list", e);
+                    Toast.makeText(CreateGroupActivity.this, "Issue with friends list", Toast.LENGTH_SHORT).show();
+                    return;
+                }
             }
         });
     }

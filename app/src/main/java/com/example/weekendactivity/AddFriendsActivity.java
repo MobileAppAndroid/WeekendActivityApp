@@ -61,8 +61,6 @@ public class AddFriendsActivity extends AppCompatActivity
             }
         });
 
-
-
         usersSearchAdapter = new ArrayAdapter<>(
                 AddFriendsActivity.this,
                 android.R.layout.simple_list_item_1,
@@ -75,17 +73,17 @@ public class AddFriendsActivity extends AppCompatActivity
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
 
-                if (currentFriends.contains(searchResults.get(i).getObjectId()))
+                if (currentFriends.contains(searchResults.get(i).getUsername()))
                 {
                     // remove friend
-                    currentFriends.remove(i);
+                    currentFriends.remove(searchResults.get(i).getUsername());
                     Toast.makeText(AddFriendsActivity.this, "Removed friend!", Toast.LENGTH_SHORT).show();
                     currentUser.put(User.KEY_FRIENDS, currentFriends);
                     currentUser.saveInBackground();
                 } else {
                     // add friend
                     Toast.makeText(AddFriendsActivity.this, "Added friend!", Toast.LENGTH_SHORT).show();
-                    currentFriends.add(searchResults.get(i).getObjectId());
+                    currentFriends.add(searchResults.get(i).getUsername());
                     currentUser.addToFriends((User) searchResults.get(i));
                     currentUser.saveInBackground();
                 }
@@ -138,7 +136,7 @@ public class AddFriendsActivity extends AppCompatActivity
             public void done(List<ParseUser> users, ParseException e) {
                 if (e == null) {
                     // The query was successful, returns the users that matches
-                    // the criterias.
+                    // the criteria.
                     searchResults = users;
 
                     searchResultsUsernames.clear();
@@ -163,4 +161,5 @@ public class AddFriendsActivity extends AppCompatActivity
         //startActivity(i);
         finish();
     }
+
 }

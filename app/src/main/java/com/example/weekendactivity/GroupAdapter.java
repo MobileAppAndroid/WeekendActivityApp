@@ -6,12 +6,18 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.parse.ParseFile;
+
 import java.util.List;
+
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
 public class GroupAdapter extends RecyclerView.Adapter<GroupAdapter.ViewHolder>
 {
@@ -50,6 +56,7 @@ public class GroupAdapter extends RecyclerView.Adapter<GroupAdapter.ViewHolder>
         private TextView tvGroupName;
         private TextView tvMembers;
         private TextView tvDescription;
+        private ImageView ivGroupImage;
 
         private String membersText;
 
@@ -59,6 +66,7 @@ public class GroupAdapter extends RecyclerView.Adapter<GroupAdapter.ViewHolder>
             tvGroupName = itemView.findViewById(R.id.tvGroupName);
             tvMembers = itemView.findViewById(R.id.tvMembers);
             tvDescription = itemView.findViewById(R.id.tvDescription);
+            ivGroupImage = itemView.findViewById(R.id.ivGroupImage);
         }
 
         @SuppressLint("SetTextI18n")
@@ -70,6 +78,16 @@ public class GroupAdapter extends RecyclerView.Adapter<GroupAdapter.ViewHolder>
             membersText = (group.getMembers().size() == 1) ? group.getMembers().size() + " member" : group.getMembers().size() + " members";
 
             tvMembers.setText(membersText);
+
+            ParseFile image = group.getGroupImage();
+            if (image != null)
+            {
+                Glide.with(context)
+                    .load(image.getUrl())
+                    .transform(new RoundedCornersTransformation(30, 10))
+                    .circleCrop()
+                    .into(ivGroupImage);
+            }
 
         }
     }
