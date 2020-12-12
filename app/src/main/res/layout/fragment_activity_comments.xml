@@ -17,10 +17,50 @@
             android:layout_height="match_parent" />
     </ScrollView>
 
-    <View
-        android:layout_gravity="bottom"
+    <LinearLayout
+        android:id="@+id/commentCpmposeContainer"
         android:layout_width="match_parent"
-        android:layout_height="20dp"
+        android:layout_height="35dp"
+        android:layout_gravity="bottom"
+        android:background="@color/white"
+        android:orientation="horizontal">
 
-    />
+        <EditText
+            android:id="@+id/etComment"
+            android:layout_width="240dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@color/white"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="bottom|left"
+            android:hint="Leave a comment"
+            android:imeOptions="actionDone"
+            android:inputType="textMultiLine"
+            android:lines="10"
+            android:maxWidth="200dp"
+            android:maxLength="200"
+            android:maxLines="10"
+            android:singleLine="false"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/ivAddPhoto"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@id/etComment"
+            android:background="@color/white"
+            android:src="@drawable/ic_baseline_add_photo_alternate_24" />
+
+
+        <Button
+            android:id="@+id/btnSendComment"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="SEND"
+            android:textSize="14sp" />
+
+    </LinearLayout>
 </FrameLayout>

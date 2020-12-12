@@ -28,6 +28,7 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.example.weekendactivity.Activity;
 import com.example.weekendactivity.ActivityDetail;
 import com.example.weekendactivity.Group;
+import com.example.weekendactivity.MainActivity;
 import com.example.weekendactivity.R;
 import com.example.weekendactivity.User;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -122,6 +123,7 @@ public class ActivityDetailFragment extends Fragment {
         tvGroupName = view.findViewById(R.id.tvGroupName);
         tvAuthorName = view.findViewById(R.id.tvAuthorName);
         ivGroup = view.findViewById(R.id.ivGroup);
+        ivComment = view.findViewById(R.id.ivComment);
         tvRegCount = view.findViewById(R.id.tvRegCount);
         tvDateTime = view.findViewById(R.id.tvDateTime);
         tvRelativeTime = view.findViewById(R.id.tvRelativeTime);
@@ -344,5 +346,12 @@ public class ActivityDetailFragment extends Fragment {
             }
         }
         return time + timeSuffix;
+    }
+    public void onResume()
+    {
+        super.onResume();
+
+        // Set title bar
+        ((ActivityDetail) getActivity()).setActionBarTitle("Activity Specifics");
     }
 }

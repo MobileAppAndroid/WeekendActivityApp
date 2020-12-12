@@ -38,6 +38,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
+
 import static com.example.weekendactivity.R.color.colorPrimary;
 import static com.example.weekendactivity.R.color.colorPrimaryDark;
 
@@ -133,12 +135,16 @@ public class ActivityAdapter extends RecyclerView.Adapter<ActivityAdapter.ViewHo
                 tvAuthorName.setText(author.getUsername()+authorLabel);
             }
             ParseFile image = activity.getGroupNotified().getGroupImage();
+
+            int radius = 30; // corner radius, higher value = more rounded
+            int margin = 10; // crop margin, set to 0 for corners with no crop
             if (image != null) {
                 Glide.with(context)
                         .load(activity.getGroupNotified().getGroupImage().getUrl())
-                        .transform(new MultiTransformation(new FitCenter(), new RoundedCorners(10)))
+                        .transform(new MultiTransformation(new FitCenter(), new RoundedCornersTransformation(radius, margin)))
                         .into(ivGroup); }
             tvRegCount.setText(String.valueOf(activity.getMemberRegistered().size())+"/"+String.valueOf(groupNotified.getMembers().size()));
+
 
 
             Date startDate = activity.getStartDate();
