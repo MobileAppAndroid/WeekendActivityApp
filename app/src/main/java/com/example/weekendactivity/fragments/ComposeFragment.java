@@ -7,18 +7,26 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 
 import com.example.weekendactivity.MainActivity;
 import com.example.weekendactivity.R;
+import com.example.weekendactivity.User;
+import com.parse.ParseUser;
+
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,10 +37,29 @@ public class ComposeFragment extends Fragment {
 
     private static final String TAG = "ComposeFragment";
     private EditText etEventName;
+    private EditText etDuration;
+    private EditText etLocation;
+    private EditText etMinParticipants;
+    private EditText etMaxParticipants;
+    private EditText etDescription;
+    private Spinner spinnerActivityCards;
     private Spinner spinnerGroupToNotify;
+    private DatePicker dpDateInMonth;
+    private CheckBox cbSaSu;
+    private CheckBox cbWeekdays;
+    private CheckBox cbMorning;
+    private CheckBox cbAfternoon;
+    private CheckBox cbNight;
+    private CheckBox cbSetUpPoll;
+    private CheckBox cbAddToCards;
     private RadioButton radioRepeatEachWeek;
     private RadioButton radioRepeatEachMonth;
     private RadioButton radioNoRepeat;
+    private Button btnSync;
+    private Button btnAddTime;
+    private Button btnAddLocation;
+    private Button btnCancel;
+    private Button btnCreateActivity;
 
 
     // TODO: Rename parameter arguments, choose names that match
@@ -80,6 +107,7 @@ public class ComposeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_compose, container, false);
+
     }
 
     @Override
@@ -100,6 +128,45 @@ public class ComposeFragment extends Fragment {
 //
 //// Set long press listener for events.
 //        mWeekView.setEventLongPressListener(mEventLongPressListener);
+
+        etEventName = view.findViewById(R.id.etEventName);
+        etDuration = view.findViewById(R.id.etDuration);
+        etLocation = view.findViewById(R.id.etLocation);
+        etMinParticipants = view.findViewById(R.id.etMinParticipants);
+        etMaxParticipants = view.findViewById(R.id.etMaxParticipants);
+        etDescription = view.findViewById(R.id.etDescription);
+        spinnerActivityCards = view.findViewById(R.id.spinnerActivtyCards);
+        spinnerGroupToNotify = view.findViewById(R.id.spinnerGroupToNotify);
+        dpDateInMonth = view.findViewById(R.id.dpDateInMonth);
+        cbSaSu = view.findViewById(R.id.cbConstraintSaSu);
+        cbWeekdays = view.findViewById(R.id.cbConstraintWeekdays);
+        cbMorning = view.findViewById(R.id.cbConstraintMorning);
+        cbAfternoon = view.findViewById(R.id.cbConstraintAfternoon);
+        cbNight = view.findViewById(R.id.cbConstraintNight);
+        cbSetUpPoll = view.findViewById(R.id.cbSetUpPoll);
+        cbAddToCards = view.findViewById(R.id.cbAddToCards);
+        radioRepeatEachWeek = view.findViewById(R.id.radio_eachWeek);
+        radioRepeatEachMonth = view.findViewById(R.id.radio_eachMonth);
+        radioNoRepeat = view.findViewById(R.id.radio_noRepeat);
+        btnSync = view.findViewById(R.id.btnSync);
+        btnAddTime = view.findViewById(R.id.btnAddTimeOption);
+        btnAddLocation = view.findViewById(R.id.btnAddLocationOption);
+        btnCancel = view.findViewById(R.id.btnCancelCreate);
+        btnCreateActivity = view.findViewById(R.id.btnCreateActivity);
+
+        Activity newActivity = new Activity();
+        User author = (User) ParseUser.getCurrentUser();
+
+
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.replace(R.id.flContainer, new ActivityFragment(), "TAG: ActivityFragment");
+                ft.commit();
+            }
+        });
+
 
     }
 

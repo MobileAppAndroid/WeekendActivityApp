@@ -21,11 +21,14 @@
         android:layout_gravity="center_horizontal"
         android:orientation="vertical">
 
-        <DatePicker
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingHorizontal="2dp"/>
-
+            <DatePicker
+                android:id="@+id/dpDateInMonth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-30dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="-50dp"
+                android:layout_marginBottom="-30dp"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -52,7 +55,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_below="@id/tvActivityCard"
                 android:layout_marginBottom="8dp"
-                android:textSize="12sp"
+                android:textSize="16sp"
                 android:text="Create a new Activty from scratch"
                 />
 
@@ -232,7 +235,7 @@
                 android:layout_toEndOf="@id/cbConstraintAfternoon"
                 android:layout_marginStart="10sp"
                 android:textSize="20sp"
-                android:text="night"
+                android:text="after 6pm"
                 />
             <CheckBox
                 android:id="@+id/cbConstraintNight"
@@ -290,29 +293,17 @@
                 android:textSize="20sp"
                 android:layout_below="@id/tvRepeat"/>
 
-            <Spinner
-                android:id="@+id/spinnerTimeMonth"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_toEndOf="@id/tvTimeOptions"
-                android:layout_marginBottom="8dp"
-                android:layout_below="@id/tvRepeat" />
 
-            <Spinner
-                android:id="@+id/spinnerTimeDay"
-                android:layout_width="40dp"
-                android:layout_height="wrap_content"
-                android:layout_toEndOf="@id/tvTimeOptions"
-                android:layout_marginBottom="8dp"
-                android:layout_below="@id/tvRepeat" />
 
-            <Spinner
-                android:id="@+id/spinnerTimeHour"
+
+            <Button
+                android:id="@+id/btnAddTimeOption"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toEndOf="@id/tvTimeOptions"
-                android:layout_marginBottom="8dp"
-                android:layout_below="@id/tvRepeat" />
+                android:layout_height="35dp"
+                android:layout_alignBottom="@id/tvTimeOptions"
+                android:layout_alignParentEnd="true"
+                android:text="Add"
+                android:textSize="12sp" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvTimeOptions"
