@@ -103,7 +103,7 @@ public class ProfileFragment extends Fragment {
         tvUsername.setText("@" + ParseUser.getCurrentUser().getUsername());
 
         String accountName = "";
-        
+
         if (ParseUser.getCurrentUser().getString("screenName") != null){
             accountName = ParseUser.getCurrentUser().getString("screenName");
         } else{
