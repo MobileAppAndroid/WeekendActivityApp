@@ -16,6 +16,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.weekendactivity.Activity;
+import com.example.weekendactivity.ActivityDetail;
+import com.example.weekendactivity.MainActivity;
 import com.example.weekendactivity.R;
 import com.example.weekendactivity.RegMemberAdapter;
 import com.example.weekendactivity.User;
@@ -158,5 +160,13 @@ public class ActivityRegisteredFragment extends Fragment {
             int noOfColumns = (int) (screenWidthDp / columnWidthDp + 0.5); // +0.5 for correct rounding to int.
             return noOfColumns;
         }
+    }
+
+    public void onResume()
+    {
+        super.onResume();
+
+        // Set title bar
+        ((ActivityDetail) getActivity()).setActionBarTitle("Registered Members");
     }
 }

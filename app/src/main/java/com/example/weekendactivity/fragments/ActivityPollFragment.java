@@ -2,12 +2,16 @@ package com.example.weekendactivity.fragments;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.weekendactivity.ActivityDetail;
+import com.example.weekendactivity.MainActivity;
 import com.example.weekendactivity.R;
 
 /**
@@ -62,5 +66,18 @@ public class ActivityPollFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_activity_poll, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+    }
+
+    public void onResume()
+    {
+        super.onResume();
+
+        // Set title bar
+        ((ActivityDetail) getActivity()).setActionBarTitle("Poll");
     }
 }

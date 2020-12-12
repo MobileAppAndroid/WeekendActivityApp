@@ -1,12 +1,21 @@
 package com.example.weekendactivity.fragments;
 
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.Spinner;
 
 import com.example.weekendactivity.MainActivity;
 import com.example.weekendactivity.R;
@@ -17,6 +26,14 @@ import com.example.weekendactivity.R;
  * create an instance of this fragment.
  */
 public class ComposeFragment extends Fragment {
+
+    private static final String TAG = "ComposeFragment";
+    private EditText etEventName;
+    private Spinner spinnerGroupToNotify;
+    private RadioButton radioRepeatEachWeek;
+    private RadioButton radioRepeatEachMonth;
+    private RadioButton radioNoRepeat;
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -65,6 +82,61 @@ public class ComposeFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_compose, container, false);
     }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        hideKeyboardFrom(getContext(), view);
+//        setupUI(view.findViewById(R.id.parent));
+        // Get a reference for the week view in the layout.
+    //        mWeekView = (WeekView) findViewById(R.id.weekView);
+//
+//// Set an action when any event is clicked.
+//        mWeekView.setOnEventClickListener(mEventClickListener);
+//
+//// The week view has infinite scrolling horizontally. We have to provide the events of a
+//// month every time the month changes on the week view.
+//        mWeekView.setMonthChangeListener(mMonthChangeListener);
+//
+//// Set long press listener for events.
+//        mWeekView.setEventLongPressListener(mEventLongPressListener);
+
+    }
+
+    public static void hideKeyboardFrom(Context context, View view) {
+        InputMethodManager imm = (InputMethodManager) context.getSystemService(Activity.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
+
+    public static void hideSoftKeyboard(Activity activity) {
+        InputMethodManager inputMethodManager =
+                (InputMethodManager) activity.getSystemService(
+                        Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(
+                activity.getCurrentFocus().getWindowToken(), 0);
+    }
+
+    public void setupUI(View view) {
+
+        // Set up touch listener for non-text box views to hide keyboard.
+        if (!(view instanceof EditText)) {
+            view.setOnTouchListener(new View.OnTouchListener() {
+                public boolean onTouch(View v, MotionEvent event) {
+                    hideKeyboardFrom(getContext(), getActivity().getCurrentFocus());
+//                    hideSoftKeyboard(MyActivity.this);
+                    return false;
+                }
+            });
+        }
+
+        //If a layout container, iterate over children and seed recursion.
+        if (view instanceof ViewGroup) {
+            for (int i = 0; i < ((ViewGroup) view).getChildCount(); i++) {
+                View innerView = ((ViewGroup) view).getChildAt(i);
+                setupUI(innerView);
+            }
+        }
+    }
     public void onResume()
     {
         super.onResume();

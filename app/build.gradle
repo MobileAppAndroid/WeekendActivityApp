@@ -60,4 +60,7 @@ dependencies {
 
     implementation 'com.google.android.gms:play-services-auth:19.0.0'
 
+    //compile 'com.github.alamkanak:android-week-view:1.2.6'
+    implementation 'com.github.marcoscgdev:Android-Week-View:1.2.7'
+
 }
