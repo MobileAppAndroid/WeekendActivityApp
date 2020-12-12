@@ -78,7 +78,7 @@ public class AddFriendsActivity extends AppCompatActivity
                 if (currentFriends.contains(searchResults.get(i).getObjectId()))
                 {
                     // remove friend
-                    currentFriends.remove(i);
+                    currentFriends.remove(searchResults.get(i).getObjectId());
                     Toast.makeText(AddFriendsActivity.this, "Removed friend!", Toast.LENGTH_SHORT).show();
                     currentUser.put(User.KEY_FRIENDS, currentFriends);
                     currentUser.saveInBackground();
@@ -163,4 +163,5 @@ public class AddFriendsActivity extends AppCompatActivity
         //startActivity(i);
         finish();
     }
+
 }
