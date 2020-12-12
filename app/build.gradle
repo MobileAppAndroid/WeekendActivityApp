@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.weekendactivity"
-        minSdkVersion 21
+        minSdkVersion 22
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -62,5 +62,7 @@ dependencies {
 
     //compile 'com.github.alamkanak:android-week-view:1.2.6'
     implementation 'com.github.marcoscgdev:Android-Week-View:1.2.7'
+
+    implementation 'me.jlurena:revolvingweekview:1.0.0'
 
 }

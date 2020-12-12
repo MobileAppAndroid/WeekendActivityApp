@@ -12,6 +12,7 @@ import com.example.weekendactivity.fragments.ActivityFragment;
 import com.example.weekendactivity.fragments.ComposeFragment;
 import com.example.weekendactivity.fragments.GroupFragment;
 import com.example.weekendactivity.fragments.ProfileFragment;
+import com.example.weekendactivity.fragments.ScheduleFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity
@@ -47,7 +48,7 @@ public class MainActivity extends AppCompatActivity
                          fragment = new ComposeFragment();
                         break;
                     case R.id.action_schedule:
-                         fragment = new ComposeFragment();
+                         fragment = new ScheduleFragment();
                         break;
                     case R.id.action_profile:
                          fragment = new ProfileFragment();
@@ -61,7 +62,9 @@ public class MainActivity extends AppCompatActivity
             }
         });
         // Set default selection
-         bottomNavigationView.setSelectedItemId(R.id.action_activity);
+
+        bottomNavigationView.setSelectedItemId(R.id.action_activity);
+
     }
 
     public void setActionBarTitle(String title)
