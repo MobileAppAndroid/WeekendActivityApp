@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end|bottom"
             android:layout_margin="16dp"
-            android:backgroundTint="#673AB7"
+            android:backgroundTint="#9D78DF"
             android:clickable="true"
             android:focusable="true"
             android:src="@android:drawable/ic_menu_edit" />

@@ -31,9 +31,9 @@ This app is aimmed at help users to plan activity to do with friends in an aided
 * [ ] User can set their attendence preference
 * [x] User can form groups
 * [ ] User can join groups 
-* [ ] User can setup an activity in a group with activity specifics (min/max number of participants, locations, fees) 
-* [ ] Schedule of users of a group will be automatically mapped together for filtering down a time common for most people, (maybe return a list of time options and number of available participants)
-* [ ] User can operate on their calendar, like show available time, grey out unavailable time
+* [x] User can setup an activity in a group with activity specifics (min/max number of participants, locations, fees) 
+* [x] Schedule of users of a group will be automatically mapped together for filtering down a time common for most people, (maybe return a list of time options and number of available participants)
+* [x] User can operate on their calendar, like show available time, grey out unavailable time
 
 **Optional Nice-to-have Stories**
 
@@ -192,3 +192,18 @@ Reference: [Supported Parse Data Types](https://docs.parseplatform.org/rest/guid
 
 ### Sprint2: App Walkthrough
 ![](sprint2.gif)
+
+## Sprint 3
+* [x] User can log in (make it login with Google)
+* [x] User can create a new account
+* [x] Create bottom navigation bar
+* [x] User can log in (make it login with Google)
+* [x] User can create a new account
+* [x] User can view future activities and past attended activities
+* [x] User can form groups
+* [x] User can setup an activity in a group with activity specifics (min/max number of participants, locations, fees) 
+* [x] Schedule of users of a group will be automatically mapped together for filtering down a time common for most people, (maybe return a list of time options and number of available participants)
+* [x] User can operate on their calendar, like show available time, grey out unavailable time
+
+### Sprint3: App Walkthrough
+![](sprint3.gif)

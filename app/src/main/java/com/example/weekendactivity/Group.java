@@ -60,12 +60,7 @@ public class Group extends ParseObject {
         put(KEY_MEMBERS, members); }
 
     public void addToMembers(User user){
-        List<String> members = getMembers();
-        if (members != null) {
-            if (members.contains(user.getObjectId())){ return; }
-        }
-        members.add(user.getObjectId());
-        put(KEY_MEMBERS,members);
+        addUnique(KEY_MEMBERS, user.getUsername());
     }
 
     public void deleteFromMembers(User user) {
