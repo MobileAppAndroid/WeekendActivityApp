@@ -163,46 +163,4 @@ public class AddFriendsActivity extends AppCompatActivity
         //startActivity(i);
         finish();
     }
-
-    /*
-    public void retrieveUsers(final String username)
-    {
-        final User userModel = new User();
-        ParseQuery<ParseUser> query = ParseUser.getQuery();
-        // query.whereEqualTo("email", "email@example.com");
-        query.findInBackground(new FindCallback<ParseUser>() {
-            public void done(List<ParseUser> users, ParseException e) {
-                if (e == null) {
-                    // The query was successful, returns the users that matches
-                    // the criterias.
-                    for(ParseUser user : users)
-                    {
-                        if (user.getUsername().equals(username))
-                        {
-                            Log.d("AddFriendsActivity", "Is it adding to parse");
-                            parseFriends.add(user);
-                        }
-                    }
-                    Log.d("AddFriendsActivity", "Parse friends size: " + String.valueOf(parseFriends.size()));
-                    // userModel.setFriends(parseFriends);
-
-                } else {
-                    // Something went wrong.
-                }
-            }
-        });
-
-    }
-
-    public void addFriendsToParse(List<String> friends)
-    {
-        Log.d("AddFriendsActivity", "friends size: " + String.valueOf(friends.size()));
-
-        for (String friend : friends)
-        {
-            Log.d("AddFriendsActivity", "Check here to add friends");
-            retrieveUsers(friend);
-        }
-    }*/
-
 }

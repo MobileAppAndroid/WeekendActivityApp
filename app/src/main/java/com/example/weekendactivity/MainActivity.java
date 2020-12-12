@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity
             }
         });
         // Set default selection
-        // bottomNavigationView.setSelectedItemId(R.id.action_activity);
+        bottomNavigationView.setSelectedItemId(R.id.action_activity);
     }
 
     public void setActionBarTitle(String title)
