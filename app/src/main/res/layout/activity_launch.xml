@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#673AB7"
+    tools:context=".LaunchActivity">
+
+    <TextView
+        android:id="@+id/tvAppName"
+        android:layout_width="232dp"
+        android:layout_height="85dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="265dp"
+        android:gravity="bottom|center_vertical|end"
+        android:text="ActivZilla"
+        android:textColor="#FFFEFE"
+        android:textSize="50sp" />
+
+    <Button
+        android:id="@+id/btnLaunchApp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="373dp"
+        android:text="Launch App" />
+</RelativeLayout>
