@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -20,10 +21,12 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.weekendactivity.MainActivity;
 import com.example.weekendactivity.R;
 import com.example.weekendactivity.User;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.parse.ParseUser;
 
 import java.util.List;
@@ -156,6 +159,11 @@ public class ComposeFragment extends Fragment {
 
         Activity newActivity = new Activity();
         User author = (User) ParseUser.getCurrentUser();
+        if (author.getGroups()== null){
+            Toast.makeText(getContext(),TAG,Toast.LENGTH_SHORT).show();
+            return;
+        }
+        List<String> groupId = author.getGroups();
 
 
         btnCancel.setOnClickListener(new View.OnClickListener() {
@@ -164,6 +172,8 @@ public class ComposeFragment extends Fragment {
                 final FragmentTransaction ft = getFragmentManager().beginTransaction();
                 ft.replace(R.id.flContainer, new ActivityFragment(), "TAG: ActivityFragment");
                 ft.commit();
+                
+                ((BottomNavigationView)getActivity().findViewById(R.id.bottomNavigation)).setSelectedItemId(R.id.action_activity);
             }
         });
 

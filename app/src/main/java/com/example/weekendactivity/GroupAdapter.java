@@ -6,12 +6,20 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.MultiTransformation;
+import com.bumptech.glide.load.resource.bitmap.FitCenter;
+import com.parse.ParseFile;
+
 import java.util.List;
+
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
 public class GroupAdapter extends RecyclerView.Adapter<GroupAdapter.ViewHolder>
 {
@@ -47,6 +55,7 @@ public class GroupAdapter extends RecyclerView.Adapter<GroupAdapter.ViewHolder>
 
     class ViewHolder extends RecyclerView.ViewHolder
     {
+        private ImageView ivGroup;
         private TextView tvGroupName;
         private TextView tvMembers;
         private TextView tvDescription;
@@ -56,6 +65,7 @@ public class GroupAdapter extends RecyclerView.Adapter<GroupAdapter.ViewHolder>
         public ViewHolder(@NonNull View itemView)
         {
             super(itemView);
+            ivGroup = itemView.findViewById(R.id.ivGroup);
             tvGroupName = itemView.findViewById(R.id.tvGroupName);
             tvMembers = itemView.findViewById(R.id.tvMembers);
             tvDescription = itemView.findViewById(R.id.tvDescription);
@@ -70,6 +80,16 @@ public class GroupAdapter extends RecyclerView.Adapter<GroupAdapter.ViewHolder>
             membersText = (group.getMembers().size() == 1) ? group.getMembers().size() + " member" : group.getMembers().size() + " members";
 
             tvMembers.setText(membersText);
+
+            ParseFile image =group.getGroupImage();
+
+            int radius = 30; // corner radius, higher value = more rounded
+            int margin = 10; // crop margin, set to 0 for corners with no crop
+            if (image != null) {
+                Glide.with(context)
+                        .load(group.getGroupImage().getUrl())
+                        .transform(new MultiTransformation(new FitCenter(), new RoundedCornersTransformation(radius, margin)))
+                        .into(ivGroup); }
 
         }
     }

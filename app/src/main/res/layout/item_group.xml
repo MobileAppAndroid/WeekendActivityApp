@@ -1,16 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:clickable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="8dp"
+    android:layout_margin="8dp">
+    <RelativeLayout
+        android:id="@+id/rlGroupContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/ivGroup"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:scaleType="centerCrop"
+            tools:srcCompat="@tools:sample/avatars"
+            />
 
     <TextView
         android:id="@+id/tvGroupName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginStart="5dp"
+        android:layout_toEndOf="@id/ivGroup"
+        android:layout_alignParentTop="true"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="61dp"
         tools:layout_editor_absoluteY="34dp"
@@ -20,17 +41,20 @@
         android:id="@+id/tvMembers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="5dp"
+        android:layout_toEndOf="@id/tvGroupName"
+        android:layout_alignParentTop="true"
         android:layout_weight="1"
-        tools:text="12 Members" />
+        tools:text="(12 Members)" />
 
     <TextView
         android:id="@+id/tvDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="10dp"
+        android:layout_below="@id/tvGroupName"
+        android:layout_toEndOf="@id/ivGroup"
+        android:layout_marginStart="5dp"
         tools:text="Badminton every Saturday" />
+    </RelativeLayout>
 
-</LinearLayout>
+</androidx.cardview.widget.CardView>

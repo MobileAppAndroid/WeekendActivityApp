@@ -1,159 +1,169 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activityContainer"
+
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp">
+    android:layout_margin="8dp"
+    android:clickable="true"
+    app:cardBackgroundColor="#E6E6E6"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="8dp">
 
-    <ImageView
-        android:id="@+id/ivGroup"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:scaleType="centerCrop"
-        tools:srcCompat="@tools:sample/avatars" />
+    <RelativeLayout
+        android:id="@+id/activityContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/ivLocation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tvDateTime"
-        android:layout_toEndOf="@id/ivGroup"
-        android:src="@drawable/ic_baseline_location_on_24" />
+        <ImageView
+            android:id="@+id/ivGroup"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:scaleType="centerCrop"
+            tools:srcCompat="@tools:sample/avatars" />
 
-    <TextView
-        android:id="@+id/tvActivityName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_toEndOf="@id/ivGroup"
-        android:background="#FFFFFF"
-        android:text="Volleyball game"
-        android:textColor="#474646"
-        android:textSize="18sp" />
+        <ImageView
+            android:id="@+id/ivLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvDateTime"
+            android:layout_toEndOf="@id/ivGroup"
+            android:src="@drawable/ic_baseline_location_on_24" />
 
-    <TextView
-        android:id="@+id/tvGroupName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tvActivityName"
-        android:layout_toRightOf="@id/tvAuthorName"
-        tools:text="Volleyball" />
+        <TextView
+            android:id="@+id/tvActivityName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_toEndOf="@id/ivGroup"
+            android:text="Volleyball game"
+            android:textColor="#474646"
+            android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/tvAuthorName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tvActivityName"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="2dp"
-        android:layout_toRightOf="@id/ivGroup"
-        tools:text="Wenjuan @" />
+        <TextView
+            android:id="@+id/tvGroupName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvActivityName"
+            android:layout_toRightOf="@id/tvAuthorName"
+            tools:text="Volleyball" />
 
-    <TextView
-        android:id="@+id/tvRelativeTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:textColor="#2958E8"
-        tools:text="1d away" />
+        <TextView
+            android:id="@+id/tvAuthorName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvActivityName"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="2dp"
+            android:layout_toRightOf="@id/ivGroup"
+            tools:text="Wenjuan @" />
 
-    <ImageView
-        android:id="@+id/ivMemberRegistered"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tvLocation"
-        android:layout_marginStart="5dp"
-        android:layout_toEndOf="@id/ivGroup"
-        app:srcCompat="@drawable/ic_baseline_group" />
+        <TextView
+            android:id="@+id/tvRelativeTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:textColor="#2958E8"
+            tools:text="1d away" />
 
-    <ImageView
-        android:id="@+id/ivComment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tvLocation"
-        android:layout_marginStart="5dp"
-        android:layout_toEndOf="@id/tvRegCount"
-        app:srcCompat="@drawable/ic_baseline_message_24" />
+        <ImageView
+            android:id="@+id/ivMemberRegistered"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvLocation"
+            android:layout_marginStart="5dp"
+            android:layout_toEndOf="@id/ivGroup"
+            app:srcCompat="@drawable/ic_baseline_group" />
 
-    <TextView
-        android:id="@+id/tvCommentCount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tvLocation"
-        android:layout_alignBottom="@id/ivComment"
-        android:layout_marginStart="3dp"
-        android:layout_toRightOf="@id/ivComment"
-        tools:text="12/20" />
+        <ImageView
+            android:id="@+id/ivComment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvLocation"
+            android:layout_marginStart="5dp"
+            android:layout_toEndOf="@id/tvRegCount"
+            app:srcCompat="@drawable/ic_baseline_message_24" />
 
-    <TextView
-        android:id="@+id/tvLocation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tvDateTime"
-        android:layout_marginStart="5dp"
-        android:layout_toEndOf="@id/ivLocation"
-        android:text="Community center" />
+        <TextView
+            android:id="@+id/tvCommentCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvLocation"
+            android:layout_alignBottom="@id/ivComment"
+            android:layout_marginStart="3dp"
+            android:layout_toRightOf="@id/ivComment"
+            tools:text="12/20" />
 
-    <TextView
-        android:id="@+id/tvDateTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tvDescription"
-        android:layout_marginStart="5dp"
-        android:layout_toEndOf="@id/ivGroup"
-        tools:text="Dec 12 Sat: 11:00 am-12:00pm" />
+        <TextView
+            android:id="@+id/tvLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvDateTime"
+            android:layout_marginStart="5dp"
+            android:layout_toEndOf="@id/ivLocation"
+            android:text="Community center" />
 
-    <TextView
-        android:id="@+id/tvDescription"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tvAuthorName"
-        android:layout_marginStart="5dp"
-        android:layout_toRightOf="@id/ivGroup"
-        tools:text="Let's have some fun this Saturday" />
+        <TextView
+            android:id="@+id/tvDateTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvDescription"
+            android:layout_marginStart="5dp"
+            android:layout_toEndOf="@id/ivGroup"
+            tools:text="Dec 12 Sat: 11:00 am-12:00pm" />
 
-    <TextView
-        android:id="@+id/tvRegCount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tvLocation"
-        android:layout_alignBottom="@id/ivMemberRegistered"
-        android:layout_marginStart="3dp"
-        android:layout_toRightOf="@id/ivMemberRegistered"
-        tools:text="12/20" />
+        <TextView
+            android:id="@+id/tvDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvAuthorName"
+            android:layout_marginStart="5dp"
+            android:layout_toRightOf="@id/ivGroup"
+            tools:text="Let's have some fun this Saturday" />
 
-    <Button
-        android:id="@+id/btnAddActivity"
-        android:layout_width="80dp"
-        android:layout_height="25dp"
-        android:layout_alignBottom="@id/ivMemberRegistered"
-        android:layout_alignParentRight="true"
-        android:background="@drawable/shape"
-        android:text="Add"
-        android:textColor="#FFFFFF"
-        android:textSize="12sp" />
+        <TextView
+            android:id="@+id/tvRegCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvLocation"
+            android:layout_alignBottom="@id/ivMemberRegistered"
+            android:layout_marginStart="3dp"
+            android:layout_toRightOf="@id/ivMemberRegistered"
+            tools:text="12/20" />
 
-    <TextView
-        android:id="@+id/tvDayofWeek"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/tvActivityName"
-        android:layout_marginStart="0dp"
-        android:layout_toEndOf="@id/tvActivityName"
-        android:text="Sat"
-        android:textColor="#2B2B2B"
-        android:textSize="18sp" />
+        <Button
+            android:id="@+id/btnAddActivity"
+            android:layout_width="80dp"
+            android:layout_height="25dp"
+            android:layout_alignBottom="@id/ivMemberRegistered"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/shape"
+            android:text="Add"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp" />
 
-    <TextView
-        android:id="@+id/tvNewActivity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tvRelativeTime"
-        android:layout_alignParentEnd="true"
-        android:textColor="#D60909"
-        tools:text="(New)" />
-</RelativeLayout>
+        <TextView
+            android:id="@+id/tvDayofWeek"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/tvActivityName"
+            android:layout_marginStart="0dp"
+            android:layout_toEndOf="@id/tvActivityName"
+            android:text="Sat"
+            android:textColor="#2B2B2B"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tvNewActivity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvRelativeTime"
+            android:layout_alignParentEnd="true"
+            android:textColor="#D60909"
+            tools:text="(New)" />
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
